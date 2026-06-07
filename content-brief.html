@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIRA — Content Brief 2026 · Brand Content Pillars</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     MIRA — Content Brief. Reskin of the project brief template
+     using MIRA design tokens (tokens.css): flow gradient, navy/
+     blue palette, Be Vietnam Pro. Pillar accent colors map to the
+     5 MIRA pillars.
+     ============================================================ */
+  :root {
+    /* MIRA brand */
+    --mira-navy:#14336E; --mira-navy-ink:#0F2540; --mira-blue:#2563EB;
+    --mira-blue-bright:#5B8DEF; --mira-amber:#F5A623; --mira-green:#16A34A;
+    --mira-red:#E0494B;
+    --flow-gradient:linear-gradient(135deg,#5B8DEF 0%,#14336E 100%);
+    --flow-gradient-text:linear-gradient(120deg,#2563EB 0%,#14336E 100%);
+
+    --brand:#2563EB; --brand-dark:#14336E;
+    --ink:#0F2540; --ink-soft:#475569;
+    --line:#E2E8F0; --bg:#F7F9FC; --card:#FFFFFF;
+
+    /* 5 pillar accents */
+    --p1:#2563EB; /* Hết loay hoay  — brand blue   */
+    --p2:#F5A623; /* Phòng thi CBT  — amber        */
+    --p3:#7C3AED; /* Học đúng chỗ yếu — violet     */
+    --p4:#16A34A; /* Band breakdown — green        */
+    --p5:#E0494B; /* Bằng chứng & tiết kiệm — red  */
+
+    --font-sans:"Be Vietnam Pro",system-ui,"Segoe UI",sans-serif;
+    --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: var(--mira-blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---------- Header ---------- */
+  .header {
+    background: var(--flow-gradient);
+    color: #fff;
+    padding: 22px 32px;
+    display: flex; align-items: center; gap: 16px;
+    position: sticky; top: 0; z-index: 50;
+    box-shadow: 0 2px 16px rgba(15,37,64,0.18);
+  }
+  .logo {
+    width: 46px; height: 46px;
+    background: rgba(255,255,255,0.16);
+    border: 1.5px solid rgba(255,255,255,0.32);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo svg { width: 28px; height: 28px; }
+  .header h1 { margin: 0; font-size: 19px; font-weight: 800; letter-spacing: -0.3px; }
+  .header .subtitle { font-size: 13px; opacity: 0.92; margin-top: 2px; font-style: italic; }
+  .header .meta { font-size: 12px; opacity: 0.9; text-align: right; }
+  .header .meta b { font-weight: 700; }
+
+  /* ---------- Layout ---------- */
+  .layout { display: grid; grid-template-columns: 268px 1fr; max-width: 1320px; margin: 0 auto; }
+  .toc {
+    position: sticky; top: 90px; align-self: start;
+    height: calc(100vh - 90px); overflow-y: auto;
+    padding: 26px 16px 26px 26px;
+    border-right: 1px solid var(--line); font-size: 13.5px;
+  }
+  .toc h4 { margin: 0 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--ink-soft); font-weight: 700; }
+  .toc ul { list-style: none; padding: 0; margin: 0 0 18px; }
+  .toc li a { display: block; padding: 6px 10px; border-radius: 8px; color: var(--ink-soft); }
+  .toc li a:hover { background: var(--blue-50,#EEF4FE); color: var(--mira-navy); text-decoration: none; }
+  .toc .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:8px; vertical-align:middle; }
+  .toc .d1{background:var(--p1)} .toc .d2{background:var(--p2)} .toc .d3{background:var(--p3)} .toc .d4{background:var(--p4)} .toc .d5{background:var(--p5)}
+
+  main { padding: 34px 44px 90px; min-width: 0; }
+
+  /* ---------- Sections ---------- */
+  section { margin-bottom: 58px; scroll-margin-top: 104px; }
+  section h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.4px; margin: 0 0 6px; display: flex; align-items: center; gap: 10px; }
+  section .lead { color: var(--ink-soft); font-size: 14.5px; margin: 0 0 22px; max-width: 740px; }
+  .sect-num { font-size: 12px; font-weight: 700; background: var(--mira-navy); color: #fff; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+
+  /* ---------- Brand snapshot ---------- */
+  .snapshot { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: grid; grid-template-columns: repeat(2,1fr); gap: 18px 36px; }
+  .snapshot .item .k { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-soft); font-weight: 700; margin-bottom: 5px; }
+  .snapshot .item .v { font-size: 14.5px; }
+  .pill { display: inline-block; padding: 3px 11px; border-radius: 12px; font-size: 12px; font-weight: 600; margin: 0 6px 5px 0; background: var(--blue-50,#EEF4FE); color: var(--mira-navy); }
+  .tagline-big { font-style: italic; font-weight: 600; color: var(--mira-blue); }
+
+  /* ---------- Pillar cards ---------- */
+  .pillar { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 0; margin-bottom: 24px; overflow: hidden; }
+  .pillar-head { padding: 22px 26px 18px; border-bottom: 1px solid var(--line); display: flex; align-items: flex-start; gap: 18px; }
+  .pillar-num { width: 50px; height: 50px; border-radius: 13px; color: #fff; font-weight: 800; font-size: 21px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .p1 .pillar-num{background:var(--p1)} .p2 .pillar-num{background:var(--p2)} .p3 .pillar-num{background:var(--p3)} .p4 .pillar-num{background:var(--p4)} .p5 .pillar-num{background:var(--p5)}
+  .pillar h3 { margin: 2px 0 4px; font-size: 22px; font-weight: 800; letter-spacing: -0.4px; }
+  .pillar .tagline { color: var(--ink-soft); font-size: 14px; margin: 0; }
+  .pillar-meta { margin-left: auto; text-align: right; flex-shrink: 0; }
+  .pillar-meta .share { font-size: 26px; font-weight: 800; line-height: 1; }
+  .p1 .share{color:var(--p1)} .p2 .share{color:var(--p2)} .p3 .share{color:var(--p3)} .p4 .share{color:var(--p4)} .p5 .share{color:var(--p5)}
+  .pillar-meta .share-lbl { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-soft); font-weight: 700; }
+  .pillar-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .pillar-body > div { padding: 22px 26px; }
+  .pillar-body > div + div { border-left: 1px solid var(--line); }
+  .pillar-body h5 { margin: 0 0 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--ink-soft); font-weight: 700; }
+  .pillar-body p, .pillar-body ul { margin: 0 0 12px; font-size: 14px; }
+  .pillar-body ul { padding-left: 18px; }
+  .pillar-body li { margin-bottom: 5px; }
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+  .do-dont > div { padding: 18px 26px; font-size: 13.5px; }
+  .do-dont .do { background: #F0FBF4; }
+  .do-dont .dont { background: #FDF1F1; border-left: 1px solid var(--line); }
+  .do-dont h6 { margin: 0 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
+  .do h6 { color: #166534; } .dont h6 { color: #991B1B; }
+  .do-dont ul { padding-left: 18px; margin: 0; } .do-dont li { margin-bottom: 4px; }
+
+  /* ---------- Tone ---------- */
+  .tone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .tone-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+  .tone-card h4 { margin: 0 0 4px; font-size: 16px; }
+  .tone-card .who { font-size: 12px; color: var(--ink-soft); margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+  .tone-card .ex { background: var(--bg); border-left: 3px solid var(--mira-blue); padding: 10px 14px; border-radius: 4px; font-size: 13.5px; font-style: italic; color: var(--ink-soft); margin-top: 12px; }
+
+  /* ---------- Matrix table ---------- */
+  table.matrix { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 13.5px; }
+  table.matrix th, table.matrix td { padding: 14px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  table.matrix tr:last-child td { border-bottom: none; }
+  table.matrix th { background: var(--slate-100,#EFF3F9); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-soft); }
+  table.matrix td.pname { font-weight: 700; }
+  table.matrix .p1c{color:var(--p1)} table.matrix .p2c{color:var(--p2)} table.matrix .p3c{color:var(--p3)} table.matrix .p4c{color:var(--p4)} table.matrix .p5c{color:var(--p5)}
+
+  /* ---------- Ideas ---------- */
+  .idea-group { margin-bottom: 28px; }
+  .idea-group h4 { font-size: 14px; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
+  .idea-group .tag { font-size: 11px; padding: 3px 10px; border-radius: 12px; color: #fff; font-weight: 700; letter-spacing: 0.4px; }
+  .t1{background:var(--p1)} .t2{background:var(--p2)} .t3{background:var(--p3)} .t4{background:var(--p4)} .t5{background:var(--p5)}
+  .idea { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin-bottom: 10px; font-size: 13.5px; }
+  .idea .title { font-weight: 700; margin-bottom: 6px; font-size: 14.5px; }
+  .idea .row { display: grid; grid-template-columns: 84px 1fr; gap: 8px; margin-bottom: 4px; }
+  .idea .row .lbl { color: var(--ink-soft); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; padding-top: 2px; }
+  .idea .row .val { color: var(--ink); }
+  .idea-labels { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 12px; }
+  .lbl-badge { font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 10px; cursor: help; position: relative; letter-spacing: 0.3px; }
+  .lbl-badge[data-tip]:hover::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); white-space: normal; background: var(--mira-navy-ink); color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 11.5px; font-weight: 500; width: 240px; line-height: 1.45; z-index: 100; pointer-events: none; box-shadow: 0 4px 12px rgba(15,37,64,0.2); }
+  .lbl-badge[data-tip]:hover::before { content:''; position: absolute; bottom: calc(100% + 1px); left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--mira-navy-ink); z-index: 100; }
+  .lbl-pillar { background: var(--mira-navy); color: #fff; }
+  .lbl-pain { background: #FDE2E2; color: #991B1B; border: 1px solid #F3B2B2; }
+  .lbl-usp { background: #DCE8FB; color: #14336E; border: 1px solid #9CBCF1; }
+
+  /* ---------- Legend ---------- */
+  .legend-box { background: var(--bg); border: 1px dashed var(--border-strong,#CBD5E1); border-radius: 10px; padding: 14px 18px; margin-bottom: 22px; font-size: 12.5px; }
+  .legend-box h5 { margin: 0 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-soft); font-weight: 700; }
+  .legend-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .legend-cols ul { padding-left: 16px; margin: 4px 0; }
+  .legend-cols li { margin-bottom: 2px; }
+  .legend-cols code { font-family: var(--font-mono); font-size: 11px; background: #fff; border: 1px solid var(--line); padding: 1px 5px; border-radius: 3px; font-weight: 700; }
+
+  /* ---------- Visual ---------- */
+  .visual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .visual-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+  .visual-card h4 { margin: 0 0 8px; font-size: 15px; }
+  .visual-card p, .visual-card ul { font-size: 13.5px; margin: 6px 0; }
+  .visual-card ul { padding-left: 18px; }
+  .swatch-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+  .swatch { width: 66px; height: 66px; border-radius: 10px; display: flex; align-items: flex-end; padding: 8px; color: #fff; font-size: 10px; font-weight: 700; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06); line-height: 1.2; }
+
+  /* ---------- Checklist ---------- */
+  .checklist { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; }
+  .checklist h4 { margin: 18px 0 8px; font-size: 14px; color: var(--ink); }
+  .checklist h4:first-child { margin-top: 0; }
+  .checklist label { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; font-size: 13.5px; cursor: pointer; }
+  .checklist input[type="checkbox"] { margin-top: 4px; accent-color: var(--mira-blue); }
+
+  /* ---------- Calendar ---------- */
+  .ratio-row { display: flex; gap: 8px; margin: 14px 0 22px; flex-wrap: wrap; }
+  .ratio-chip { padding: 6px 13px; border-radius: 20px; font-size: 12.5px; font-weight: 700; color: #fff; }
+  .ratio-chip.r1{background:var(--p1)} .ratio-chip.r2{background:var(--p2)} .ratio-chip.r3{background:var(--p3)} .ratio-chip.r4{background:var(--p4)} .ratio-chip.r5{background:var(--p5)}
+  .cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 6px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .cal-grid .dh { text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-soft); padding: 6px 0; }
+  .cal-cell { background: var(--bg); border-radius: 8px; padding: 10px 8px; min-height: 92px; font-size: 12px; }
+  .cal-cell .day { font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; font-size: 11px; }
+  .cal-cell .slot { display: block; font-size: 10.5px; color: #fff; padding: 3px 6px; border-radius: 4px; margin-bottom: 3px; font-weight: 600; line-height: 1.3; }
+  .slot.s1{background:var(--p1)} .slot.s2{background:var(--p2)} .slot.s3{background:var(--p3)} .slot.s4{background:var(--p4)} .slot.s5{background:var(--p5)}
+
+  /* ---------- Frameworks ---------- */
+  .fw-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin-bottom: 16px; }
+  .fw-card h4 { margin: 0 0 4px; font-size: 18px; letter-spacing: -0.3px; display: flex; align-items: center; gap: 10px; }
+  .fw-card h4 .acro { font-size: 13px; padding: 3px 10px; border-radius: 8px; background: var(--mira-navy); color: #fff; font-weight: 700; letter-spacing: 0.5px; }
+  .fw-card .when { font-size: 12px; color: var(--ink-soft); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+  .fw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fw-block h6 { margin: 0 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-soft); font-weight: 700; }
+  .fw-block .template { background: var(--bg); border-left: 3px solid var(--mira-blue); padding: 12px 14px; border-radius: 4px; font-size: 13px; line-height: 1.65; }
+  .fw-block .template ol { padding-left: 18px; margin: 0; } .fw-block .template li { margin-bottom: 4px; }
+  .fw-block .example { background: #FFF8EC; border-left: 3px solid var(--mira-amber); padding: 12px 14px; border-radius: 4px; font-size: 13px; line-height: 1.65; }
+  .fw-block .example p { margin: 4px 0; } .fw-block .example p b { color: #92400E; }
+
+  /* ---------- USP hero (was GPS) ---------- */
+  .usp-hero { background: var(--flow-gradient-soft,linear-gradient(135deg,#EAF0FB 0%,#DCE8FB 100%)); border: 1px solid #C2D6F7; border-radius: 18px; padding: 28px 30px; margin-bottom: 22px; }
+  .usp-hero .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--mira-navy); margin-bottom: 6px; }
+  .usp-hero h3 { margin: 0 0 8px; font-size: 27px; font-weight: 800; letter-spacing: -0.7px; color: var(--mira-navy-ink); }
+  .usp-hero .diff-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 18px; }
+  .usp-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .usp-card .n { font-size: 22px; font-weight: 800; color: var(--mira-blue); line-height: 1; }
+  .usp-card b { display: block; margin: 6px 0 4px; font-size: 14px; }
+  .usp-card .desc { font-size: 13px; line-height: 1.5; color: var(--ink-soft); }
+
+  /* ---------- Note / callout ---------- */
+  .callout { border-radius: 12px; padding: 16px 20px; font-size: 14px; margin: 0 0 16px; border: 1px solid; }
+  .callout.warn { background: #FFF8EC; border-color: #F5C97A; }
+  .callout.warn b { color: #92400E; }
+  .callout.info { background: var(--blue-50,#EEF4FE); border-color: #9CBCF1; }
+
+  /* ---------- Search ---------- */
+  .search-wrap { position: relative; margin-left: auto; }
+  .search-input { width: 220px; padding: 8px 12px 8px 32px; border: none; border-radius: 8px; background: rgba(255,255,255,0.18); color: #fff; font-size: 13px; outline: none; font-family: var(--font-sans); transition: background .15s, width .2s; }
+  .search-input::placeholder { color: rgba(255,255,255,0.72); }
+  .search-input:focus { background: rgba(255,255,255,0.28); width: 280px; }
+  .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); font-size: 13px; opacity: 0.8; pointer-events: none; }
+  .search-kbd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.85); font-family: var(--font-mono); pointer-events: none; }
+  .search-controls { position: absolute; top: 100%; right: 0; margin-top: 6px; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 12px; display: none; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(15,37,64,0.1); white-space: nowrap; }
+  .search-controls.show { display: flex; }
+  .search-controls .count { font-weight: 600; color: var(--ink-soft); }
+  .search-controls button { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; font-size: 11px; cursor: pointer; color: var(--ink); }
+  .search-controls button:hover { background: var(--blue-50,#EEF4FE); }
+  mark.search-hit { background: #FDE9A8; padding: 1px 2px; border-radius: 2px; }
+  mark.search-hit.active { background: var(--mira-amber); color: #fff; }
+
+  /* ---------- Footer ---------- */
+  footer { border-top: 1px solid var(--line); padding: 22px 40px; font-size: 12px; color: var(--ink-soft); text-align: center; }
+
+  @media (max-width: 960px) {
+    .layout { grid-template-columns: 1fr; }
+    .toc { display: none; }
+    main { padding: 24px 20px 60px; }
+    .pillar-body, .do-dont, .snapshot, .tone-grid, .visual-grid, .fw-grid, .legend-cols, .usp-hero .diff-grid { grid-template-columns: 1fr; }
+    .pillar-body > div + div { border-left: none; border-top: 1px solid var(--line); }
+    .do-dont .dont { border-left: none; border-top: 1px solid var(--line); }
+    .header .meta { display: none; }
+    .search-input { width: 130px; } .search-input:focus { width: 150px; }
+    .cal-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="logo">
+    <svg viewBox="28 50 175 145" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="m" x1="33" y1="53" x2="198" y2="190" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#DCE8FB"/></linearGradient></defs>
+      <path d="M152.24 61.45H47.1C39.5 61.45 33.35 67.6 33.35 75.2v.62c0 7.59 6.16 13.75 13.75 13.75h105.14c7.59 0 13.75-6.16 13.75-13.75v-.62c0-7.6-6.16-13.75-13.75-13.75Z" fill="url(#m)"/>
+      <path d="M178.81 143.8c10.39 0 18.81-8.42 18.81-18.81s-8.42-18.81-18.81-18.81S160 114.6 160 124.99s8.42 18.81 18.81 18.81Z" fill="#F5A623"/>
+      <path d="M105.57 110.71H46.67C39.12 110.71 33 116.83 33 124.38v.94c0 7.55 6.12 13.67 13.67 13.67h58.9c7.55 0 13.67-6.12 13.67-13.67v-.94c0-7.55-6.12-13.67-13.67-13.67Z" fill="url(#m)"/>
+      <path d="M141.04 160.88H46.88c-7.63 0-13.82 6.19-13.82 13.82v.72c0 7.63 6.19 13.82 13.82 13.82h94.16c7.63 0 13.82-6.19 13.82-13.82v-.72c0-7.63-6.19-13.82-13.82-13.82Z" fill="url(#m)"/>
+    </svg>
+  </div>
+  <div>
+    <h1>MIRA — Content Brief 2026</h1>
+    <div class="subtitle">Brand Content Pillars · just in flow</div>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="searchInput" class="search-input" placeholder="Tìm trong brief…" autocomplete="off">
+    <span class="search-kbd">/</span>
+    <div class="search-controls" id="searchControls">
+      <span class="count" id="searchCount">0 / 0</span>
+      <button id="searchPrev">↑</button>
+      <button id="searchNext">↓</button>
+      <button id="searchClose">✕</button>
+    </div>
+  </div>
+  <div class="meta">
+    <div><b>Phiên bản</b> 1.0</div>
+    <div>Cập nhật 06/2026</div>
+  </div>
+</header>
+
+<div class="layout">
+<!-- ============ TOC ============ -->
+<aside class="toc">
+  <h4>Tổng quan</h4>
+  <ul>
+    <li><a href="#snapshot">Brand snapshot</a></li>
+    <li><a href="#how-to-use">Cách dùng brief này</a></li>
+    <li><a href="#usp"><b>★ Khác biệt cốt lõi (USP)</b></a></li>
+    <li><a href="#pain-points">Pain Points (PAS)</a></li>
+  </ul>
+  <h4>5 Content Pillars</h4>
+  <ul>
+    <li><a href="#pillar-1"><span class="dot d1"></span>1. Hết loay hoay</a></li>
+    <li><a href="#pillar-2"><span class="dot d2"></span>2. Chiến thuật phòng thi</a></li>
+    <li><a href="#pillar-3"><span class="dot d3"></span>3. Học đúng chỗ yếu</a></li>
+    <li><a href="#pillar-4"><span class="dot d4"></span>4. Band breakdown</a></li>
+    <li><a href="#pillar-5"><span class="dot d5"></span>5. Bằng chứng &amp; tiết kiệm</a></li>
+  </ul>
+  <h4>Sản xuất</h4>
+  <ul>
+    <li><a href="#tone">Tone of Voice</a></li>
+    <li><a href="#frameworks">Copywriting Frameworks</a></li>
+    <li><a href="#cta-library">CTA Library</a></li>
+    <li><a href="#matrix">Format Matrix</a></li>
+    <li><a href="#ideas">Idea Mẫu (14 ideas)</a></li>
+    <li><a href="#visual">Visual Guideline</a></li>
+  </ul>
+  <h4>Vận hành</h4>
+  <ul>
+    <li><a href="#checklist">Approval Checklist</a></li>
+    <li><a href="#calendar">Content Calendar</a></li>
+    <li><a href="#offers">Chương trình ưu đãi</a></li>
+    <li><a href="#promotion">Promotion Rules</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<!-- ===== 00 SNAPSHOT ===== -->
+<section id="snapshot">
+  <h2><span class="sect-num">00</span> Brand Snapshot</h2>
+  <p class="lead">Nền chung cho mọi content. Đọc trước khi viết bất kỳ bài nào — mọi nội dung phải nhất quán với những điều ở đây.</p>
+  <div class="snapshot">
+    <div class="item"><div class="k">Sản phẩm</div><div class="v">Nền tảng luyện IELTS <b>Reading &amp; Listening</b> cho người Việt: chú thích từ vựng <b>theo ngữ cảnh</b> ngay trong bài, <b>video phụ đề song ngữ cho đề Listening</b> (tra từ ngay trên phụ đề), thi thử CBT đúng giao diện thật, chấm điểm + ước lượng band tự động, phân tích lỗi theo dạng câu hỏi và <b>định vị dẫn chứng đáp án</b> ngay trong bài.</div></div>
+    <div class="item"><div class="k">Website / App</div><div class="v"><a href="https://www.miraflow.vn" target="_blank" rel="noopener"><b>www.miraflow.vn</b></a> — link chính thức, gắn vào mọi CTA &amp; bài viết.</div></div>
+    <div class="item"><div class="k">Tagline</div><div class="v"><span class="tagline-big">just in flow</span> — Học trọng tâm, band xứng tầm.</div></div>
+    <div class="item"><div class="k">Lời hứa thương hiệu</div><div class="v"><b>"Ít loay hoay hơn. Đạt band sớm hơn."</b> Mỗi content phải chứng minh được 1 trong 2 vế: <i>giảm ma sát</i> hoặc <i>tiến nhanh hơn</i>.</div></div>
+    <div class="item"><div class="k">3 trụ giá trị</div><div class="v"><span class="pill">Hiểu nhanh hơn</span><span class="pill">Học đúng trọng tâm</span><span class="pill">Tiến bộ có định hướng</span></div></div>
+    <div class="item"><div class="k">Đối tượng chính</div><div class="v">Người Việt <b>tự luyện IELTS</b>, band 5.0–6.5, mục tiêu 6.5–7.0, nhạy cảm giá, ít/không đi trung tâm.</div></div>
+    <div class="item"><div class="k">Đòn bẩy định vị</div><div class="v">Khoảng <b>1/50 học phí trung tâm</b> · 3 bài miễn phí/tháng · không cần thẻ.</div></div>
+    <div class="item"><div class="k">Điều KHÔNG nói</div><div class="v">Không hứa "band 8 trong 1 tháng". Không phô trương tính năng khô khan. Không "đao to búa lớn".</div></div>
+    <div class="item"><div class="k">Mỗi content kết bằng</div><div class="v">Một <b>bước tiếp theo cụ thể</b> — phản chiếu chính triết lý sản phẩm "luôn biết bước tiếp theo".</div></div>
+  </div>
+  <div class="callout info" style="margin-top:16px">
+    <b>Sự thật sản phẩm cần nhớ:</b> MIRA hiện tập trung <b>Reading &amp; Listening</b> (chưa có Writing/Speaking). Có 4 gói: Free / Plus / Pro / Business. Free = 3 bài preview/tháng. Đăng nhập Google miễn phí. Lịch sử thi thử lưu ở /history. Thi thử CBT tốt nhất trên màn ≥13". Giữ con số minh bạch (1/50 học phí, không cần thẻ) và không hứa band cụ thể trong thời gian ngắn.
+  </div>
+</section>
+
+<!-- ===== 01 HOW TO USE ===== -->
+<section id="how-to-use">
+  <h2><span class="sect-num">01</span> Cách dùng brief này</h2>
+  <p class="lead">Quy trình từ ý tưởng đến bài đăng. Mỗi content luôn gắn với 1 pillar và đi qua đủ các bước.</p>
+  <div class="callout info">
+    <b>Luồng chuẩn:</b> Chọn pillar (mục 04–08) → chọn pain point cần đánh (mục 03) → dùng framework copywriting (mục 09) → chọn format theo platform (mục 10) → viết → soi lại Approval Checklist (mục 13) → lên lịch (mục 14).
+  </div>
+  <div class="legend-box">
+    <h5>Quy ước nhãn trong brief</h5>
+    <div class="legend-cols">
+      <div><b>Pillar code</b><ul>
+        <li><code>P1</code> Hết loay hoay</li>
+        <li><code>P2</code> Phòng thi CBT</li>
+        <li><code>P3</code> Học đúng chỗ yếu</li>
+        <li><code>P4</code> Band breakdown</li>
+        <li><code>P5</code> Bằng chứng &amp; tiết kiệm</li>
+      </ul></div>
+      <div><b>Pain code</b><ul>
+        <li><code>PA1</code> Tra cứu đứt mạch</li>
+        <li><code>PA2</code> Lạ phòng thi máy</li>
+        <li><code>PA3</code> Học lan man</li>
+        <li><code>PA4</code> Học phí đắt</li>
+      </ul></div>
+      <div><b>USP code</b><ul>
+        <li><code>U1</code> Gloss theo ngữ cảnh</li>
+        <li><code>U2</code> Study ↔ Test liền mạch</li>
+        <li><code>U3</code> CBT đúng giao diện thật</li>
+        <li><code>U4</code> Phân tích lỗi theo dạng câu</li>
+        <li><code>U5</code> Video phụ đề đề Listening</li>
+        <li><code>U6</code> Định vị dẫn chứng đáp án</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 USP ===== -->
+<section id="usp">
+  <h2><span class="sect-num">02</span> Khác biệt cốt lõi — USP <span class="pill" style="background:var(--mira-amber);color:#fff">★
+    
+  </span></h2>
+  <p class="lead">MIRA khác gì so với app học online khác? Gói gọn trong <b>just in flow</b> — giảm ma sát trong lúc học. 6 khác biệt mọi content phải biết để chứng minh (4 "signature" + 2 bổ trợ).</p>
+  <div class="usp-hero">
+    <div class="label">Một câu cho team content</div>
+    <h3>Các app khác cho bạn nội dung.<br>MIRA gỡ bỏ những đoạn tốn công nhất giữa bạn và band điểm.</h3>
+    <p style="margin:0;font-size:14px;color:var(--ink-soft)">Tra cứu · làm quen phòng thi · tự mò chỗ yếu — đó là 3 đoạn tốn công MIRA xử lý.</p>
+    <div class="diff-grid">
+      <div class="usp-card"><div class="n">U1</div><b>Chú thích từ vựng theo đúng ngữ cảnh</b><div class="desc">Nghĩa, IPA, bản dịch hiện ngay trên từ — và là nghĩa <b>đúng ngữ cảnh của bài</b>, không phải nghĩa từ điển chung chung. App khác bắt chuyển tab tra từ rồi tự đoán nghĩa nào hợp; kể cả nhờ AI dịch vẫn chậm hơn vì phải rời bài. Đây là "signature", dễ nhận diện &amp; dễ demo nhất.</div></div>
+      <div class="usp-card"><div class="n">U2</div><b>Study ↔ Test liền mạch</b><div class="desc">Không có điểm bắt đầu cố định. Vào Study hay Test đều được, hệ thống tự nối Review → Progress rồi quay vòng. Người học không phải tự quyết "giờ làm gì tiếp".</div></div>
+      <div class="usp-card"><div class="n">U3</div><b>Thi thử CBT đúng giao diện thật</b><div class="desc">Không phải quiz cho có — mô phỏng đúng giao diện thi trên máy, đúng áp lực thời gian. Rất ít app Việt làm nghiêm túc.</div></div>
+      <div class="usp-card"><div class="n">U4</div><b>Phân tích lỗi theo dạng câu hỏi</b><div class="desc">Sai vì từ vựng, vì dạng bài, hay vì đọc lướt — kèm gợi ý bài nên luyện tiếp. App khác chỉ trả điểm số; MIRA trả <i>hướng đi</i>.</div></div>
+      <div class="usp-card"><div class="n">U5</div><b>Video phụ đề song ngữ cho đề Listening</b><div class="desc">Audio của chính đề Listening được trình bày dạng video có phụ đề Anh–Việt, và từ trong phụ đề tra được nghĩa theo ngữ cảnh y như trong bài Reading. Nơi khác chỉ cho file nghe + transcript tĩnh; MIRA cho nghe lại đề, đọc phụ đề và tra từ ngay tại chỗ.</div></div>
+      <div class="usp-card"><div class="n">U6</div><b>Định vị dẫn chứng đáp án</b><div class="desc">Khi giải thích đáp án, MIRA chỉ đúng vị trí chứa câu trả lời: đoạn/dòng trong passage Reading, đoạn audio trong Listening. Không chỉ biết "đúng/sai" mà thấy <i>câu trả lời nằm ở đâu</i>.</div></div>
+    </div>
+  </div>
+  <div class="callout warn" style="display:flex;align-items:center;gap:12px">
+    <span style="font-size:22px;line-height:1">▶</span>
+    <span><b>Video demo các feature (U1–U6):</b> <a href="https://drive.google.com/drive/folders/1dx8-j-X7zaxRrYPo49qr4FFG3161m48F?usp=sharing" target="_blank" rel="noopener">Xem ở Google Drive ↗</a> — tham khảo khi viết/quay để mô tả đúng tính năng. <i>(Tài liệu nội bộ — không chia sẻ link ra ngoài.)</i></span>
+  </div>
+  <div class="callout info">Điểm cộng định vị: <b>minh bạch &amp; rẻ</b> — 3 bài miễn phí/tháng, không cần thẻ, chi phí ~1/50 học phí trung tâm.</div>
+</section>
+
+<!-- ===== 03 PAIN POINTS ===== -->
+<section id="pain-points">
+  <h2><span class="sect-num">03</span> Audience Pain Points — PAS Framework</h2>
+  <p class="lead">4 pain thật, lấy thẳng từ tuyên bố sản phẩm "giảm những đoạn tốn công nhất". Mỗi pain → cách MIRA gỡ → CTA. Đây là "mỏ" content vô tận.</p>
+  <table class="matrix">
+    <thead><tr><th style="width:48px">Code</th><th style="width:24%">Pain (Problem)</th><th>Khuấy động (Agitate)</th><th>Lối thoát MIRA (Solution)</th><th style="width:18%">CTA mẫu</th></tr></thead>
+    <tbody>
+      <tr><td class="pname p1c">PA1</td><td><b>Tra cứu làm đứt mạch đọc</b></td><td>Đọc được 3 câu phải dừng tra từ — quay lại đã quên đoạn đầu. Tệ hơn: tra xong còn phải tự chọn nghĩa nào hợp ngữ cảnh; kể cả nhờ AI dịch vẫn chậm vì phải rời bài.</td><td>Gloss theo ngữ cảnh (U1): nghĩa đúng ngữ cảnh + IPA hiện ngay trên từ, không chuyển tab, không phải tự đoán nghĩa.</td><td>"Đọc thử 1 bài Cambridge không khựng → 3 bài miễn phí."</td></tr>
+      <tr><td class="pname p2c">PA2</td><td><b>Lạ phòng thi máy (CBT)</b></td><td>Luyện trên giấy rất ổn, đến hôm thi máy thì bỡ ngỡ giao diện, luống cuống đồng hồ → điểm thật thấp hơn năng lực.</td><td>Thi thử CBT đúng giao diện, đúng áp lực thời gian (U3).</td><td>"Làm 1 đề thi thử trên máy ngay hôm nay."</td></tr>
+      <tr><td class="pname p3c">PA3</td><td><b>Học lan man, không biết yếu chỗ nào</b></td><td>Làm 20 đề mà band vẫn đứng yên. Tự tổng hợp lỗi rất mệt, luyện mãi không lên.</td><td>Phân tích lỗi theo dạng câu hỏi + gợi ý bài luyện tiếp (U4).</td><td>"Xem bài làm gần nhất được mổ xẻ thế nào (Pro)."</td></tr>
+      <tr><td class="pname p5c">PA4</td><td><b>Học phí trung tâm đắt</b></td><td>Vẫn cần hỗ trợ tiếng Việt &amp; lộ trình, nhưng chưa sẵn sàng đóng vài triệu — đứng giữa "tự bơi với sách" và "đóng tiền trung tâm".</td><td>~1/50 học phí trung tâm, vẫn có gloss + lộ trình cá nhân hoá.</td><td>"So sánh chi phí → bắt đầu miễn phí."</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===== 04-08 PILLARS ===== -->
+<section id="pillar-1">
+  <h2><span class="sect-num">04</span> 5 Content Pillars</h2>
+  <p class="lead">Hệ thống 5 trụ nội dung. Mỗi pillar có vai trò riêng trong phễu (top → chuyển đổi) và một tỷ trọng đề xuất. Mỗi bài đăng phải thuộc đúng 1 pillar.</p>
+
+  <div class="pillar p1">
+    <div class="pillar-head">
+      <div class="pillar-num">1</div>
+      <div><h3>Hết loay hoay</h3><p class="tagline">Friction-killer · pillar nhận diện thương hiệu</p></div>
+      <div class="pillar-meta"><div class="share">25%</div><div class="share-lbl">tỷ trọng</div></div>
+    </div>
+    <div class="pillar-body">
+      <div>
+        <h5>Mục tiêu &amp; vai trò</h5>
+        <p>Đánh trúng nỗi đau lớn nhất (PA1): dừng đọc để tra từ, mất mạch hiểu, lại còn phải tự chọn nghĩa hợp ngữ cảnh. Gắn trực tiếp với gloss theo ngữ cảnh (U1) — đây là pillar khắc dấu thương hiệu.</p>
+        <h5>Chủ đề gợi ý</h5>
+        <ul><li>Mẹo đọc Cambridge không khựng</li><li>Vì sao chuyển tab giết tốc độ đọc</li><li>"Nghĩa từ điển" vs "nghĩa trong ngữ cảnh" khác nhau thế nào</li><li>Demo gloss: trước/sau khi có chú thích tại chỗ</li><li>Nghe lại đề Listening qua video phụ đề song ngữ, tra từ ngay trên phụ đề</li></ul>
+      </div>
+      <div>
+        <h5>Format ưu tiên</h5>
+        <p>Carousel &amp; short-form: mẹo nhanh, ảnh demo gloss, screen-record rê chuột hiện nghĩa; clip ngắn demo phụ đề video.</p>
+        <h5>USP &amp; Pain gắn kèm</h5>
+        <p><span class="lbl-badge lbl-usp" data-tip="Nghĩa đúng ngữ cảnh hiện ngay trên từ, không phải nghĩa từ điển chung chung.">U1 Gloss ngữ cảnh</span> <span class="lbl-badge lbl-usp" data-tip="Video phụ đề song ngữ cho audio đề Listening, tra từ ngay trên phụ đề.">U5 Video Listening</span> <span class="lbl-badge lbl-pain" data-tip="Tra cứu làm đứt mạch đọc + phải tự chọn nghĩa hợp ngữ cảnh.">PA1</span></p>
+        <h5>CTA chuẩn</h5>
+        <p>"Đọc thử 1 bài không khựng → 3 bài miễn phí, không cần thẻ."</p>
+      </div>
+    </div>
+    <div class="do-dont">
+      <div class="do"><h6>Nên</h6><ul><li>Cho thấy trải nghiệm đọc mượt, cụ thể</li><li>Dùng ví dụ từ vựng học thuật thật</li><li>Quay màn hình demo tính năng</li></ul></div>
+      <div class="dont"><h6>Tránh</h6><ul><li>Ưu tiên kể trải nghiệm hơn liệt kê tính năng</li><li>Đặt mục tiêu học từ vựng thực tế, vừa sức</li><li>Kèm demo cụ thể khi nói về tính năng</li></ul></div>
+    </div>
+  </div>
+
+  <div class="pillar p2" id="pillar-2">
+    <div class="pillar-head">
+      <div class="pillar-num">2</div>
+      <div><h3>Chiến thuật phòng thi</h3><p class="tagline">CBT &amp; test-taking · chiều sâu sản phẩm</p></div>
+      <div class="pillar-meta"><div class="share">15%</div><div class="share-lbl">tỷ trọng</div></div>
+    </div>
+    <div class="pillar-body">
+      <div>
+        <h5>Mục tiêu &amp; vai trò</h5>
+        <p>Đẩy mạnh khác biệt "đúng giao diện, đúng áp lực thời gian" (U3). Gỡ pain PA2 — bỡ ngỡ thi máy.</p>
+        <h5>Chủ đề gợi ý</h5>
+        <ul><li>Làm quen giao diện thi CBT</li><li>Quản lý thời gian (hook: đồng hồ 17:42)</li><li>Tâm lý phòng thi, tránh luống cuống</li><li>Checklist trước giờ G</li></ul>
+      </div>
+      <div>
+        <h5>Format ưu tiên</h5>
+        <p>Short-form demo giao diện thi; carousel chiến thuật bấm giờ; reel "thi thử như thật".</p>
+        <h5>USP &amp; Pain gắn kèm</h5>
+        <p><span class="lbl-badge lbl-usp" data-tip="Thi thử mô phỏng đúng giao diện CBT, đúng áp lực thời gian thật.">U3 CBT</span> <span class="lbl-badge lbl-pain" data-tip="Lạ phòng thi máy, điểm thật thấp hơn năng lực.">PA2</span></p>
+        <h5>CTA chuẩn</h5>
+        <p>"Làm 1 đề thi thử trên máy ngay hôm nay."</p>
+      </div>
+    </div>
+    <div class="do-dont">
+      <div class="do"><h6>Nên</h6><ul><li>Cho thấy đúng UI thi thật</li><li>Mẹo bấm giờ áp dụng được ngay</li></ul></div>
+      <div class="dont"><h6>Tránh</h6><ul><li>Giữ giọng trấn an, giúp người học bình tĩnh</li><li>Kèm demo giao diện thi khi nói chiến thuật</li></ul></div>
+    </div>
+  </div>
+
+  <div class="pillar p3" id="pillar-3">
+    <div class="pillar-head">
+      <div class="pillar-num">3</div>
+      <div><h3>Học đúng chỗ yếu</h3><p class="tagline">Data-driven progress · nâng giá trị lên Pro</p></div>
+      <div class="pillar-meta"><div class="share">15%</div><div class="share-lbl">tỷ trọng</div></div>
+    </div>
+    <div class="pillar-body">
+      <div>
+        <h5>Mục tiêu &amp; vai trò</h5>
+        <p>Chứng minh "học thông minh hơn, không phải học nhiều hơn". Gỡ pain PA3, nâng giá trị gói Pro (U4).</p>
+        <h5>Chủ đề gợi ý</h5>
+        <ul><li>"Biết mình yếu ở đâu" — phân tích lỗi theo dạng câu</li><li>Vì sao làm nhiều đề mà band không lên</li><li>Lộ trình cá nhân hoá hoạt động thế nào</li><li>"Đáp án nằm ở đâu trong bài" — định vị dẫn chứng từng câu</li></ul>
+      </div>
+      <div>
+        <h5>Format ưu tiên</h5>
+        <p>Carousel "đọc vị lỗi sai"; ảnh dashboard phân tích; clip chỉ vị trí đáp án trong passage/audio; story trước/sau.</p>
+        <h5>USP &amp; Pain gắn kèm</h5>
+        <p><span class="lbl-badge lbl-usp" data-tip="Phân tích lỗi theo dạng câu hỏi + gợi ý bài luyện tiếp.">U4 Phân tích lỗi</span> <span class="lbl-badge lbl-usp" data-tip="Chỉ đúng đoạn/dòng trong Reading, đoạn audio trong Listening chứa câu trả lời.">U6 Định vị dẫn chứng</span> <span class="lbl-badge lbl-pain" data-tip="Học lan man, không biết yếu chỗ nào.">PA3</span></p>
+        <h5>CTA chuẩn</h5>
+        <p>"Xem bài làm gần nhất của bạn được mổ xẻ thế nào (Pro)."</p>
+      </div>
+    </div>
+    <div class="do-dont">
+      <div class="do"><h6>Nên</h6><ul><li>Dùng số liệu/biểu đồ minh hoạ</li><li>Kết nối rõ với gói Pro</li></ul></div>
+      <div class="dont"><h6>Tránh</h6><ul><li>Sau số liệu luôn gợi một bước nên làm</li><li>Diễn đạt đơn giản, dễ hiểu</li></ul></div>
+    </div>
+  </div>
+
+  <div class="pillar p4" id="pillar-4">
+    <div class="pillar-head">
+      <div class="pillar-num">4</div>
+      <div><h3>Band breakdown</h3><p class="tagline">Kiến thức nền IELTS · SEO &amp; top-of-funnel</p></div>
+      <div class="pillar-meta"><div class="share">30%</div><div class="share-lbl">tỷ trọng</div></div>
+    </div>
+    <div class="pillar-body">
+      <div>
+        <h5>Mục tiêu &amp; vai trò</h5>
+        <p>Pillar nuôi SEO &amp; reach — kéo người mới ở đầu phễu. Tỷ trọng cao nhất vì giá trị dài hạn.</p>
+        <h5>Chủ đề gợi ý</h5>
+        <ul><li>Giải thích band score Reading/Listening</li><li>Cách làm từng dạng câu (Matching Headings, T/F/NG…)</li><li>Từ vựng học thuật theo chủ đề Cambridge</li><li>Lỗi phổ biến theo dạng câu hỏi</li></ul>
+      </div>
+      <div>
+        <h5>Format ưu tiên</h5>
+        <p>Blog dài chuẩn SEO (chính); carousel "1 dạng câu / 1 bài"; bài viết trụ (pillar page) + cluster.</p>
+        <h5>USP &amp; Pain gắn kèm</h5>
+        <p><span class="lbl-badge lbl-pillar">SEO engine</span> <span class="lbl-badge lbl-usp" data-tip="Mọi tip đều có thể demo bằng tính năng MIRA.">U1 · U4</span></p>
+        <h5>CTA chuẩn</h5>
+        <p>"Luyện đúng dạng câu này ngay trên MIRA → bắt đầu miễn phí."</p>
+      </div>
+    </div>
+    <div class="do-dont">
+      <div class="do"><h6>Nên</h6><ul><li>Tối ưu từ khoá tìm kiếm thật</li><li>Mỗi bài giải quyết 1 truy vấn rõ</li><li>Liên kết nội bộ sang pillar khác</li></ul></div>
+      <div class="dont"><h6>Tránh</h6><ul><li>Viết tự nhiên, để từ khoá xuất hiện không gượng</li><li>Mỗi bài trả lời trọn một câu hỏi của người đọc</li></ul></div>
+    </div>
+  </div>
+
+  <div class="pillar p5" id="pillar-5">
+    <div class="pillar-head">
+      <div class="pillar-num">5</div>
+      <div><h3>Bằng chứng &amp; tiết kiệm</h3><p class="tagline">Proof &amp; value · pillar chuyển đổi</p></div>
+      <div class="pillar-meta"><div class="share">15%</div><div class="share-lbl">tỷ trọng</div></div>
+    </div>
+    <div class="pillar-body">
+      <div>
+        <h5>Mục tiêu &amp; vai trò</h5>
+        <p>Gỡ rào cản cuối trước khi đăng ký (PA4). Câu chuyện tiến bộ, so sánh chi phí, minh bạch "miễn phí 3 bài/tháng, không cần thẻ".</p>
+        <h5>Chủ đề gợi ý</h5>
+        <ul><li>So sánh chi phí MIRA vs trung tâm</li><li>Case study tiến bộ của người học</li><li>Minh bạch gói Free/Plus/Pro</li><li>"Thử 0đ trước khi quyết"</li></ul>
+      </div>
+      <div>
+        <h5>Format ưu tiên</h5>
+        <p>Case study; carousel so sánh giá; testimonial; bài "vì sao miễn phí mà vẫn đủ dùng".</p>
+        <h5>USP &amp; Pain gắn kèm</h5>
+        <p><span class="lbl-badge lbl-usp" data-tip="~1/50 học phí trung tâm, 3 bài miễn phí/tháng, không cần thẻ.">Value</span> <span class="lbl-badge lbl-pain" data-tip="Học phí trung tâm đắt.">PA4</span></p>
+        <h5>CTA chuẩn</h5>
+        <p>"So sánh chi phí → vào thư viện miễn phí."</p>
+      </div>
+    </div>
+    <div class="do-dont">
+      <div class="do"><h6>Nên</h6><ul><li>Dùng con số thật, minh bạch</li><li>Câu chuyện người thật việc thật</li></ul></div>
+      <div class="dont"><h6>Tránh</h6><ul><li>Giữ con số đúng thực tế</li><li>Ưu tiên câu chuyện thật, giọng tự nhiên</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 TONE ===== -->
+<section id="tone">
+  <h2><span class="sect-num">05</span> Tone of Voice</h2>
+  <p class="lead">Tiếng Việt đời thường, không "đao to búa lớn". Tập trung vào trải nghiệm học chứ không phô trương tính năng. Tone đổi nhẹ theo 2 chân dung khách hàng.</p>
+  <div class="tone-grid">
+    <div class="tone-card">
+      <h4>Với "Minh" — người tự luyện (primary, ~80%)</h4>
+      <div class="who">19–26 tuổi · tự học · nhạy cảm giá · band 5.0–6.5</div>
+      <p style="font-size:13.5px;margin:0">Nói chuyện ngang hàng, cụ thể, tránh sáo rỗng. Hiểu rằng Minh không lười — chỉ không biết nên luyện gì tiếp. Luôn cho một bước nhỏ khả thi.</p>
+      <div class="ex">"Mình không lười — mình chỉ không biết nên luyện cái gì tiếp theo."</div>
+    </div>
+    <div class="tone-card">
+      <h4>Với "Cô Hà" — GV/trung tâm nhỏ (secondary, ~20%)</h4>
+      <div class="who">28–45 tuổi · dạy 10–50 HV · cần công cụ quản lý</div>
+      <p style="font-size:13.5px;margin:0">Giọng tin cậy, ít hype hơn. Nhấn tiết kiệm thời gian quản lý + hình ảnh chuyên nghiệp trước học viên (gói Business: subdomain, brand, dashboard).</p>
+      <div class="ex">"Mình dạy giỏi, nhưng quản lý lớp thì đuối."</div>
+    </div>
+  </div>
+  <div class="callout info" style="margin-top:16px">Nguyên tắc vàng: mỗi nội dung <b>kết bằng một bước tiếp theo cụ thể</b> — phản chiếu triết lý sản phẩm "luôn biết bước tiếp theo".</div>
+</section>
+
+<!-- ===== 06 FRAMEWORKS ===== -->
+<section id="frameworks">
+  <h2><span class="sect-num">06</span> Copywriting Frameworks</h2>
+  <p class="lead">6 khung viết áp dụng nhanh, mỗi khung có template + ví dụ MIRA thật. Chọn khung theo mục tiêu bài; cuối mục có thêm "So what?" test để soi nhanh trước khi đăng.</p>
+
+  <div class="fw-card">
+    <h4><span class="acro">PAS</span> Problem · Agitate · Solution</h4>
+    <div class="when">Dùng khi: đánh trực diện một pain point (P1, P2, P3, P5)</div>
+    <div class="fw-grid">
+      <div class="fw-block"><h6>Template</h6><div class="template"><ol><li><b>Problem</b> — nêu nỗi đau người học gặp</li><li><b>Agitate</b> — khuấy cho thấy hệ quả nếu để vậy</li><li><b>Solution</b> — MIRA gỡ thế nào + bước tiếp theo</li></ol></div></div>
+      <div class="fw-block"><h6>Ví dụ (PA1)</h6><div class="example"><p><b>P:</b> Đang đọc Cambridge, gặp từ lạ là dừng tra.</p><p><b>A:</b> Tra xong quay lại quên mất đoạn đầu — đọc cả buổi không hiểu trọn bài.</p><p><b>S:</b> Trên MIRA nghĩa hiện ngay trên từ, không rời bài. Đọc thử 1 bài miễn phí.</p></div></div>
+    </div>
+  </div>
+
+  <div class="fw-card">
+    <h4><span class="acro">BAB</span> Before · After · Bridge</h4>
+    <div class="when">Dùng khi: kể câu chuyện tiến bộ, case study (P3, P5)</div>
+    <div class="fw-grid">
+      <div class="fw-block"><h6>Template</h6><div class="template"><ol><li><b>Before</b> — tình trạng cũ (lan man, band đứng yên)</li><li><b>After</b> — trạng thái mong muốn (biết yếu chỗ nào)</li><li><b>Bridge</b> — MIRA là cây cầu nối hai trạng thái</li></ol></div></div>
+      <div class="fw-block"><h6>Ví dụ (PA3)</h6><div class="example"><p><b>B:</b> Làm 20 đề, band vẫn 6.0, không hiểu vì sao.</p><p><b>A:</b> Biết chính xác mình sai vì từ vựng hay vì đọc lướt.</p><p><b>Bridge:</b> Phân tích lỗi theo dạng câu của MIRA chỉ ra ngay.</p></div></div>
+    </div>
+  </div>
+
+  <div class="fw-card">
+    <h4><span class="acro">FAB</span> Feature · Advantage · Benefit</h4>
+    <div class="when">Dùng khi: giới thiệu tính năng mà vẫn nói "được gì" (P1, P2, P4)</div>
+    <div class="fw-grid">
+      <div class="fw-block"><h6>Template</h6><div class="template"><ol><li><b>Feature</b> — tính năng là gì</li><li><b>Advantage</b> — nó hơn cách cũ ở đâu</li><li><b>Benefit</b> — người học được lợi gì cuối cùng</li></ol></div></div>
+      <div class="fw-block"><h6>Ví dụ (U3)</h6><div class="example"><p><b>F:</b> Thi thử mô phỏng đúng giao diện CBT.</p><p><b>A:</b> Quen tay trước, không bỡ ngỡ ngày thi thật.</p><p><b>B:</b> Vào phòng thi bình tĩnh, điểm đúng năng lực.</p></div></div>
+    </div>
+  </div>
+
+  <div class="fw-card">
+    <h4><span class="acro">AIDA</span> Attention · Interest · Desire · Action</h4>
+    <div class="when">Dùng khi: short-form, reel, carousel cần hook mạnh ngay đầu (P1, P2)</div>
+    <div class="fw-grid">
+      <div class="fw-block"><h6>Template</h6><div class="template"><ol><li><b>Attention</b> — câu hook chặn ngón tay lướt</li><li><b>Interest</b> — chạm đúng tình huống người học</li><li><b>Desire</b> — cho thấy MIRA dễ thở hơn thế nào</li><li><b>Action</b> — một bước làm ngay</li></ol></div></div>
+      <div class="fw-block"><h6>Ví dụ (U5)</h6><div class="example"><p><b>A:</b> "Nghe đề Listening 1 lần là trôi hết — bạn không kịp bắt từ khoá."</p><p><b>I:</b> Transcript tĩnh thì phải tự dò, tự tra từng từ.</p><p><b>D:</b> MIRA cho nghe lại đề qua video phụ đề Anh–Việt, tra từ ngay trên phụ đề.</p><p><b>A:</b> Nghe lại 1 đề Listening có phụ đề song ngữ.</p></div></div>
+    </div>
+  </div>
+
+  <div class="fw-card">
+    <h4><span class="acro">4U</span> Useful · Urgent · Unique · Ultra-specific</h4>
+    <div class="when">Dùng khi: viết tiêu đề, hook, dòng mở blog SEO (P4) hoặc caption</div>
+    <div class="fw-grid">
+      <div class="fw-block"><h6>Template</h6><div class="template"><ol><li><b>Useful</b> — hứa một lợi ích rõ</li><li><b>Urgent</b> — vì sao nên đọc bây giờ</li><li><b>Unique</b> — góc nhìn riêng của MIRA</li><li><b>Ultra-specific</b> — cụ thể, có con số/dạng câu</li></ol></div></div>
+      <div class="fw-block"><h6>Ví dụ (tiêu đề P4)</h6><div class="example"><p><b>Yếu:</b> "Mẹo làm Matching Headings."</p><p><b>4U:</b> "3 bẫy Matching Headings khiến bạn mất 2–3 câu mỗi đề — và cách nhận ra trong 10 giây."</p></div></div>
+    </div>
+  </div>
+
+  <div class="fw-card">
+    <h4><span class="acro">PPP</span> Problem · Promise · Proof</h4>
+    <div class="when">Dùng khi: bài chuyển đổi, cần bằng chứng để gỡ nghi ngờ (P5)</div>
+    <div class="fw-grid">
+      <div class="fw-block"><h6>Template</h6><div class="template"><ol><li><b>Problem</b> — nỗi đau cụ thể</li><li><b>Promise</b> — MIRA hứa gỡ điều gì</li><li><b>Proof</b> — bằng chứng: demo, số liệu, dẫn chứng trong bài</li></ol></div></div>
+      <div class="fw-block"><h6>Ví dụ (U6)</h6><div class="example"><p><b>P:</b> Làm xong đề chỉ biết đúng/sai, không biết vì sao.</p><p><b>Promise:</b> MIRA chỉ đúng câu trả lời nằm ở dòng nào.</p><p><b>Proof:</b> Clip: bấm 1 câu sai → app highlight đoạn chứa đáp án.</p></div></div>
+    </div>
+  </div>
+
+  <div class="callout info" style="margin-top:4px">
+    <b>"So what?" test (kiểm nhanh trước khi đăng):</b> đọc lại mỗi câu và tự hỏi "rồi sao?". Nếu một câu không dẫn tới lợi ích của người học hoặc một bước hành động, hãy cắt hoặc viết lại. Mỗi đoạn nên trả lời được "người đọc được gì".
+  </div>
+</section>
+
+<!-- ===== 07 CTA LIBRARY ===== -->
+<section id="cta-library">
+  <h2><span class="sect-num">07</span> CTA Library</h2>
+  <p class="lead">Kho câu kêu gọi hành động dùng chung. Chọn CTA theo "nhiệt độ" người đọc (đang ở đâu trong phễu) và theo gói. Mỗi bài kết bằng đúng 1 CTA — không chồng nhiều lời kêu gọi.</p>
+
+  <table class="matrix">
+    <thead><tr><th style="width:22%">Giai đoạn phễu</th><th>CTA mẫu (chọn 1)</th><th style="width:20%">Dùng cho pillar</th></tr></thead>
+    <tbody>
+      <tr><td class="pname p4c">Top-funnel · người mới biết MIRA</td><td>"Đọc thử 1 bài Cambridge không khựng" · "Nghe lại 1 đề Listening có phụ đề song ngữ" · "Luyện đúng dạng câu này ngay trên MIRA"</td><td>P1 · P4</td></tr>
+      <tr><td class="pname p2c">Cân nhắc · đang so sánh</td><td>"Làm 1 đề thi thử trên máy hôm nay" · "Tự thử gloss trên 1 bài đọc" · "Mở 3 bài preview của tháng"</td><td>P2 · P1</td></tr>
+      <tr><td class="pname p3c">Gần chuyển đổi · thấy giá trị Pro</td><td>"Xem bài làm gần nhất được mổ xẻ thế nào" · "Làm 1 bài, xem dẫn chứng đáp án từng câu"</td><td>P3</td></tr>
+      <tr><td class="pname p5c">Chuyển đổi · gỡ rào cản cuối</td><td>"Vào thư viện miễn phí — không cần thẻ" · "So sánh chi phí rồi quyết" · "Bắt đầu 0đ, nâng cấp khi sẵn sàng"</td><td>P5</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:18px;margin:26px 0 12px">CTA theo gói</h3>
+  <table class="matrix">
+    <thead><tr><th style="width:18%">Gói</th><th>CTA mẫu</th><th style="width:26%">Lưu ý</th></tr></thead>
+    <tbody>
+      <tr><td class="pname">Free</td><td>"Mở 3 bài preview tháng này" · "Đăng nhập Google miễn phí để lưu lịch sử"</td><td>Luôn nhấn "miễn phí / không cần thẻ" để giảm friction.</td></tr>
+      <tr><td class="pname">Plus</td><td>"Mở khoá toàn bộ thư viện Reading &amp; Listening" · "Tải PDF bài bạn đang học"</td><td>Nhấn "không giới hạn bài" thay vì kể tính năng lẻ.</td></tr>
+      <tr><td class="pname">Pro</td><td>"Bật phân tích lỗi theo dạng câu" · "Nhận gợi ý bài nên luyện tiếp"</td><td>Chỉ đẩy trong content P3 — nơi giá trị Pro rõ nhất.</td></tr>
+      <tr><td class="pname">Business</td><td>"Mở trung tâm của bạn trên subdomain riêng" · "Đặt lịch demo dashboard học viên"</td><td>Dành riêng kênh/nội dung cho "Cô Hà", không trộn.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:18px;margin:26px 0 12px">CTA chốt sales (cuối phễu)</h3>
+  <p style="font-size:13.5px;color:var(--ink-soft);margin:0 0 12px">Dùng khi người đọc đã hiểu giá trị, cần một lý do hành động bây giờ. Tạo động lực bằng ưu đãi gói nhiều tháng — vẫn giữ giọng MIRA, không hối thúc kiểu "mua ngay kẻo lỡ".</p>
+  <table class="matrix">
+    <thead><tr><th style="width:30%">Góc chốt</th><th>CTA mẫu</th></tr></thead>
+    <tbody>
+      <tr><td class="pname p5c">Quy về chi phí nhỏ</td><td>"Mở toàn bộ thư viện chỉ ~69.000đ/tháng — chưa bằng một ly cà phê."</td></tr>
+      <tr><td class="pname p5c">Ưu đãi gói dài</td><td>"Chọn gói 6 tháng, tiết kiệm 48% so với trả từng tháng." · "Gói 2 tháng đang -31% — học trọn một mùa luyện thi."</td></tr>
+      <tr><td class="pname p5c">So với phương án khác</td><td>"Một khoá trung tâm = nhiều tháng MIRA. Bắt đầu với gói Plus hôm nay."</td></tr>
+      <tr><td class="pname p5c">Giảm rủi ro quyết định</td><td>"Thử miễn phí trước, nâng cấp khi thấy hợp — không cần thẻ để bắt đầu."</td></tr>
+      <tr><td class="pname p5c">Chốt cho Pro</td><td>"Nâng lên Pro để biết chính xác nên luyện gì tiếp — học đúng chỗ, lên band nhanh hơn."</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info" style="margin-top:18px">
+    <b>Nguyên tắc viết CTA:</b> bắt đầu bằng động từ ("Đọc thử", "Làm", "Xem") · cụ thể một hành động duy nhất · ưu tiên cửa 0đ trước khi nhắc gói trả phí · gắn với đúng tính năng đang nói trong bài · tránh CTA mơ hồ kiểu "liên hệ ngay", "đừng bỏ lỡ". <b>CTA chốt sales</b> chỉ dùng ở cuối phễu (P5) hoặc cuối bài đã đủ thuyết phục — không rải khắp nơi.
+  </div>
+</section>
+
+<!-- ===== 08 MATRIX ===== -->
+<section id="matrix">
+  <h2><span class="sect-num">08</span> Format Matrix theo Platform</h2>
+  <p class="lead">Mỗi pillar hợp với định dạng &amp; kênh khác nhau. Bảng này quyết định "viết cái gì, đăng ở đâu".</p>
+  <table class="matrix">
+    <thead><tr><th style="width:20%">Pillar</th><th>Định dạng chính</th><th>Kênh ưu tiên</th><th style="width:18%">Mục tiêu phễu</th></tr></thead>
+    <tbody>
+      <tr><td class="pname p1c">P1 · Hết loay hoay</td><td>Carousel, short video demo gloss</td><td>Instagram, TikTok</td><td>Nhận diện</td></tr>
+      <tr><td class="pname p2c">P2 · Phòng thi CBT</td><td>Reel demo giao diện, carousel chiến thuật</td><td>TikTok, Instagram</td><td>Cân nhắc</td></tr>
+      <tr><td class="pname p3c">P3 · Học đúng chỗ yếu</td><td>Carousel "đọc vị lỗi", ảnh dashboard</td><td>Instagram, Facebook</td><td>Cân nhắc → Pro</td></tr>
+      <tr><td class="pname p4c">P4 · Band breakdown</td><td>Blog dài SEO, pillar page + cluster</td><td>Website/Blog, YouTube</td><td>Top-of-funnel</td></tr>
+      <tr><td class="pname p5c">P5 · Bằng chứng &amp; tiết kiệm</td><td>Case study, carousel so sánh giá</td><td>Facebook, Landing</td><td>Chuyển đổi</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===== 09 IDEAS ===== -->
+<section id="ideas">
+  <h2><span class="sect-num">09</span> 14 Idea Mẫu để team sản xuất ngay</h2>
+  <p class="lead">Ý tưởng đã gắn sẵn pillar, pain, USP, format &amp; CTA. Rê chuột vào nhãn để xem chú thích. Lấy về làm là viết được.</p>
+
+  <div class="idea-group">
+    <h4><span class="tag t1">P1 · Hết loay hoay</span></h4>
+    <div class="idea"><div class="title">"5 lần chuyển tab tra từ = mất 5 lần mạch đọc"</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P1</span><span class="lbl-badge lbl-pain" data-tip="Tra cứu làm đứt mạch đọc">PA1</span><span class="lbl-badge lbl-usp" data-tip="Gloss song ngữ tại chỗ">U1</span></div><div class="row"><span class="lbl">Format</span><span class="val">Carousel 6 slide</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Đọc thử 1 bài không khựng → 3 bài miễn phí</span></div></div>
+    <div class="idea"><div class="title">Screen-record: rê chuột là hiện nghĩa + IPA ngay trên từ</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P1</span><span class="lbl-badge lbl-usp" data-tip="Gloss theo ngữ cảnh">U1</span></div><div class="row"><span class="lbl">Format</span><span class="val">Short video 15–20s</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Tự thử trên 1 bài Cambridge</span></div></div>
+    <div class="idea"><div class="title">"Nghe đề Listening 1 lần trôi hết? Nghe lại có phụ đề, tra từ ngay tại chỗ"</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P1</span><span class="lbl-badge lbl-usp" data-tip="Video phụ đề song ngữ cho audio đề Listening, tra từ ngay trên phụ đề">U5</span></div><div class="row"><span class="lbl">Format</span><span class="val">Reel demo 20–30s</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Nghe lại 1 đề Listening có phụ đề song ngữ</span></div></div>
+  </div>
+
+  <div class="idea-group">
+    <h4><span class="tag t2">P2 · Phòng thi CBT</span></h4>
+    <div class="idea"><div class="title">"Lần đầu thi máy mình luống cuống cái đồng hồ"</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P2</span><span class="lbl-badge lbl-pain" data-tip="Lạ phòng thi máy">PA2</span><span class="lbl-badge lbl-usp" data-tip="CBT đúng giao diện thật">U3</span></div><div class="row"><span class="lbl">Format</span><span class="val">Reel kể chuyện 30s</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Làm 1 đề thi thử trên máy hôm nay</span></div></div>
+    <div class="idea"><div class="title">Chiến thuật chia thời gian 60 phút Reading (bấm giờ thật)</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P2</span><span class="lbl-badge lbl-usp" data-tip="CBT đúng giao diện thật">U3</span></div><div class="row"><span class="lbl">Format</span><span class="val">Carousel 5 slide</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Luyện bấm giờ trên giao diện thật</span></div></div>
+  </div>
+
+  <div class="idea-group">
+    <h4><span class="tag t3">P3 · Học đúng chỗ yếu</span></h4>
+    <div class="idea"><div class="title">"Làm 20 đề band vẫn đứng yên? Đây là lý do thật"</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P3</span><span class="lbl-badge lbl-pain" data-tip="Học lan man, không biết yếu chỗ nào">PA3</span><span class="lbl-badge lbl-usp" data-tip="Phân tích lỗi theo dạng câu">U4</span></div><div class="row"><span class="lbl">Format</span><span class="val">Carousel "đọc vị lỗi"</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Xem bài làm gần nhất được mổ xẻ (Pro)</span></div></div>
+    <div class="idea"><div class="title">Ảnh dashboard: sai vì từ vựng / dạng bài / đọc lướt?</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P3</span><span class="lbl-badge lbl-usp" data-tip="Phân tích lỗi theo dạng câu">U4</span></div><div class="row"><span class="lbl">Format</span><span class="val">Single image + caption</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Khám phá phân tích lỗi của bạn</span></div></div>
+    <div class="idea"><div class="title">"Đáp án câu này nằm ở dòng nào?" — MIRA chỉ thẳng vào bài</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P3</span><span class="lbl-badge lbl-usp" data-tip="Định vị dẫn chứng đáp án trong Reading/Listening">U6</span></div><div class="row"><span class="lbl">Format</span><span class="val">Clip / carousel demo</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Làm thử 1 bài, xem dẫn chứng từng câu</span></div></div>
+  </div>
+
+  <div class="idea-group">
+    <h4><span class="tag t4">P4 · Band breakdown</span></h4>
+    <div class="idea"><div class="title">"Cách làm dạng Matching Headings không bị lừa"</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P4</span><span class="lbl-badge lbl-usp" data-tip="SEO top-of-funnel">SEO</span></div><div class="row"><span class="lbl">Format</span><span class="val">Blog dài + carousel tóm tắt</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Luyện đúng dạng này trên MIRA → miễn phí</span></div></div>
+    <div class="idea"><div class="title">Band score Listening: 30/40 là band mấy? (bảng quy đổi)</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P4</span><span class="lbl-badge lbl-usp" data-tip="SEO top-of-funnel">SEO</span></div><div class="row"><span class="lbl">Format</span><span class="val">Blog SEO + infographic</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Thi thử để biết band ước lượng của bạn</span></div></div>
+    <div class="idea"><div class="title">20 từ học thuật chủ đề Môi trường (hay gặp trong Cambridge)</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P4</span><span class="lbl-badge lbl-usp" data-tip="Gloss song ngữ tại chỗ">U1</span></div><div class="row"><span class="lbl">Format</span><span class="val">Carousel + blog cluster</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Gặp lại 20 từ này ngay trong bài đọc MIRA</span></div></div>
+  </div>
+
+  <div class="idea-group">
+    <h4><span class="tag t5">P5 · Bằng chứng &amp; tiết kiệm</span></h4>
+    <div class="idea"><div class="title">"Một khoá trung tâm vs 1 năm MIRA: làm phép tính"</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P5</span><span class="lbl-badge lbl-pain" data-tip="Học phí trung tâm đắt">PA4</span></div><div class="row"><span class="lbl">Format</span><span class="val">Carousel so sánh giá</span></div><div class="row"><span class="lbl">CTA</span><span class="val">So sánh chi phí → vào thư viện miễn phí</span></div></div>
+    <div class="idea"><div class="title">"Mình thử 0đ 1 tháng rồi mới nâng cấp" — câu chuyện thật</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P5</span><span class="lbl-badge lbl-usp" data-tip="3 bài miễn phí/tháng, không cần thẻ">Value</span></div><div class="row"><span class="lbl">Format</span><span class="val">Case study / testimonial</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Bắt đầu miễn phí, không cần thẻ</span></div></div>
+    <div class="idea"><div class="title">"Vì sao MIRA cho 3 bài miễn phí mỗi tháng?" (minh bạch)</div><div class="idea-labels"><span class="lbl-badge lbl-pillar">P5</span><span class="lbl-badge lbl-usp" data-tip="Minh bạch gói Free">Value</span></div><div class="row"><span class="lbl">Format</span><span class="val">Bài Facebook dài</span></div><div class="row"><span class="lbl">CTA</span><span class="val">Mở 3 bài preview tháng này</span></div></div>
+  </div>
+</section>
+
+<!-- ===== 10 VISUAL ===== -->
+<section id="visual">
+  <h2><span class="sect-num">10</span> Visual Guideline</h2>
+  <p class="lead">Bảng màu &amp; nguyên tắc hình ảnh lấy thẳng từ design system MIRA. Giữ "flow" gradient làm chữ ký, amber chỉ dùng nhấn 1 điểm.</p>
+  <div class="visual-grid">
+    <div class="visual-card">
+      <h4>Bảng màu thương hiệu</h4>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#14336E">Navy<br>14336E</div>
+        <div class="swatch" style="background:#2563EB">Blue<br>2563EB</div>
+        <div class="swatch" style="background:#5B8DEF">Sky<br>5B8DEF</div>
+        <div class="swatch" style="background:#F5A623;color:#3a2a05">Amber<br>F5A623</div>
+        <div class="swatch" style="background:#16A34A">Green<br>16A34A</div>
+      </div>
+      <p><b>Flow gradient</b> (135°, sky→navy) là chữ ký — dùng cho header, CTA, hero. <b>Amber</b> chỉ là điểm nhấn ấm duy nhất, dùng tiết kiệm.</p>
+    </div>
+    <div class="visual-card">
+      <h4>Typography</h4>
+      <ul><li><b>Be Vietnam Pro</b> — toàn bộ chữ (heading 700/800, body 400)</li><li><b>JetBrains Mono</b> — IPA, code, số liệu</li><li>Tagline "just in flow": luôn lowercase, in nghiêng, màu blue</li></ul>
+    </div>
+    <div class="visual-card">
+      <h4>Nguyên tắc ảnh</h4>
+      <ul><li>Ưu tiên ảnh demo sản phẩm thật (gloss, giao diện thi)</li><li>Bo góc mềm (radius lớn), bóng xanh nhạt — không bóng đen gắt</li><li>Nhiều khoảng trắng, nhịp đọc thoáng</li></ul>
+    </div>
+    <div class="visual-card">
+      <h4>Tránh</h4>
+      <ul><li>Ưu tiên ảnh sản phẩm thật hơn ảnh stock</li><li>Giữ đỏ cho báo lỗi, dùng nhẹ; không làm màu chủ đạo</li><li>Giữ ít chữ, dùng gradient trong bảng màu thương hiệu</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11 CHECKLIST ===== -->
+<section id="checklist">
+  <h2><span class="sect-num">11</span> Approval Checklist</h2>
+  <p class="lead">Soi mọi bài trước khi đăng. Đủ tick mới xuất bản.</p>
+  <div class="checklist">
+    <h4>Chiến lược</h4>
+    <label><input type="checkbox">Bài thuộc đúng 1 pillar rõ ràng</label>
+    <label><input type="checkbox">Chứng minh được 1 vế: giảm ma sát hoặc tiến nhanh hơn</label>
+    <label><input type="checkbox">Gắn với 1 pain point cụ thể (PA1–PA4)</label>
+    <h4>Nội dung &amp; sự thật</h4>
+    <label><input type="checkbox">Mọi tính năng nhắc tới đều có thật (xem mục 06)</label>
+    <label><input type="checkbox">Không hứa band cụ thể trong thời gian ngắn</label>
+    <label><input type="checkbox">Con số (giá, tiết kiệm) minh bạch, không phóng đại</label>
+    <h4>Giọng &amp; hình</h4>
+    <label><input type="checkbox">Giọng đời thường, ngang hàng, không sáo rỗng</label>
+    <label><input type="checkbox">"just in flow" viết đúng (lowercase, nghiêng)</label>
+    <label><input type="checkbox">Màu &amp; font đúng design system</label>
+    <h4>Chốt</h4>
+    <label><input type="checkbox">Kết bằng 1 CTA cụ thể, low-friction</label>
+    <label><input type="checkbox">Có liên kết/đường dẫn tới hành động tiếp theo</label>
+  </div>
+</section>
+
+<!-- ===== 12 CALENDAR ===== -->
+<section id="calendar">
+  <h2><span class="sect-num">12</span> Content Calendar — Tỷ lệ &amp; Mẫu tuần</h2>
+  <p class="lead">Tỷ trọng đề xuất giữa 5 pillar và một tuần mẫu để team áp dụng ngay.</p>
+  <div class="ratio-row">
+    <span class="ratio-chip r4">P4 Band breakdown · 30%</span>
+    <span class="ratio-chip r1">P1 Hết loay hoay · 25%</span>
+    <span class="ratio-chip r2">P2 Phòng thi · 15%</span>
+    <span class="ratio-chip r3">P3 Chỗ yếu · 15%</span>
+    <span class="ratio-chip r5">P5 Proof · 15%</span>
+  </div>
+  <div class="cal-grid">
+    <div class="dh">T2</div><div class="dh">T3</div><div class="dh">T4</div><div class="dh">T5</div><div class="dh">T6</div><div class="dh">T7</div><div class="dh">CN</div>
+    <div class="cal-cell"><div class="day">T2</div><span class="slot s4">P4 Blog SEO</span></div>
+    <div class="cal-cell"><div class="day">T3</div><span class="slot s1">P1 Carousel</span></div>
+    <div class="cal-cell"><div class="day">T4</div><span class="slot s2">P2 Reel demo</span></div>
+    <div class="cal-cell"><div class="day">T5</div><span class="slot s4">P4 Carousel</span></div>
+    <div class="cal-cell"><div class="day">T6</div><span class="slot s3">P3 "Đọc vị lỗi"</span></div>
+    <div class="cal-cell"><div class="day">T7</div><span class="slot s1">P1 Short video</span></div>
+    <div class="cal-cell"><div class="day">CN</div><span class="slot s5">P5 Case study</span></div>
+  </div>
+  <div class="callout info" style="margin-top:16px">Phân bổ kênh: P4 nuôi SEO/blog &amp; reach; P1 nhận diện trên IG/TikTok; P2–P3 chiều sâu sản phẩm; P5 chốt đơn ở Facebook/Landing. Dồn ~80% nội dung cho persona "Minh", ~20% cho "Cô Hà" (gói Business).</div>
+</section>
+
+<!-- ===== 13 OFFERS ===== -->
+<section id="offers">
+  <h2><span class="sect-num">13</span> Chương trình ưu đãi</h2>
+  <p class="lead">Bảng giá &amp; ưu đãi hiện tại để team tham chiếu khi viết CTA/bài chuyển đổi. <b>Số liệu tại 06/2026 — luôn kiểm tra trang giá trước khi đăng vì giá có thể thay đổi.</b></p>
+  <div class="callout info">
+    <b>Chu kỳ &amp; mức giảm:</b> 1 tháng (giá gốc) · <b>2 tháng −31%</b> · <b>6 tháng −48%</b>. Mua càng dài càng tiết kiệm — đây là góc chốt sales chính.
+  </div>
+  <table class="matrix">
+    <thead><tr><th style="width:16%">Gói</th><th style="width:22%">Giá (chu kỳ 2 tháng)</th><th>Bao gồm chính</th></tr></thead>
+    <tbody>
+      <tr><td class="pname">Free</td><td><b>Miễn phí</b></td><td>3 bài preview/tháng (Reading + Listening + Thi thử) · đầy đủ study mode trên bài preview · Study ↔ Test liền mạch · đăng nhập miễn phí.</td></tr>
+      <tr><td class="pname">Plus</td><td><b>137.000đ</b>/2 tháng <span style="color:var(--ink-soft)">(~69.000đ/tháng, gốc 198.000đ, −31%)</span></td><td>Mở khoá toàn bộ thư viện Reading + Listening · toàn bộ đề Thi thử trên máy · lịch sử điểm + ước lượng band không giới hạn · xuất PDF kèm chú thích &amp; bản dịch.</td></tr>
+      <tr><td class="pname">Pro</td><td><b>275.000đ</b>/2 tháng <span style="color:var(--ink-soft)">(~138.000đ/tháng, gốc 398.000đ)</span></td><td>Tất cả của Plus · phân tích điểm mạnh &amp; yếu cá nhân · gợi ý bài nên luyện tiếp · trải nghiệm sớm tính năng mới.</td></tr>
+      <tr><td class="pname">Business</td><td><b>Liên hệ báo giá</b></td><td>Giải pháp cho trung tâm IELTS &amp; doanh nghiệp đào tạo (subdomain riêng, thương hiệu, quản lý học viên, dashboard).</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn" style="margin-top:14px">
+    <b>Lưu ý khi dùng số:</b> luôn kèm chữ "khoảng" với mức quy đổi/tháng · nêu rõ giá theo chu kỳ (vd "/2 tháng") để không gây hiểu nhầm · không khẳng định ưu đãi "vĩnh viễn" · nếu có đợt khuyến mãi riêng, cập nhật mục này trước rồi mới triển khai content.
+  </div>
+</section>
+
+<!-- ===== 14 PROMOTION ===== -->
+<section id="promotion">
+  <h2><span class="sect-num">14</span> Promotion Rules</h2>
+  <p class="lead">Cách đẩy content &amp; gắn CTA nhất quán với định vị low-friction của MIRA.</p>
+  <table class="matrix">
+    <thead><tr><th style="width:30%">Tình huống</th><th>Nguyên tắc</th></tr></thead>
+    <tbody>
+      <tr><td><b>CTA mặc định</b></td><td>"Vào thư viện miễn phí" / "3 bài miễn phí, không cần thẻ" — luôn ưu tiên cửa vào 0đ trước khi nhắc gói trả phí.</td></tr>
+      <tr><td><b>Nhắc gói Pro</b></td><td>Chỉ nhắc Pro trong content P3 (phân tích lỗi) — nơi giá trị Pro rõ nhất. Không spam Pro ở mọi bài.</td></tr>
+      <tr><td><b>Gói Business</b></td><td>Tách kênh/nội dung riêng nhắm "Cô Hà" (GV/trung tâm). Không trộn vào content cho người tự học.</td></tr>
+      <tr><td><b>So sánh giá</b></td><td>Dùng "khoảng 1/50 học phí trung tâm" — luôn kèm chữ "khoảng", không cam kết con số tuyệt đối.</td></tr>
+      <tr><td><b>Tần suất đẩy bán</b></td><td>Giữ tỷ lệ ~70% giá trị (P1–P4) : ~30% chuyển đổi (P5). Không biến feed thành quảng cáo liên tục.</td></tr>
+      <tr><td><b>Liên kết phễu</b></td><td>Bài P4 (SEO) luôn link nội bộ tới landing/thư viện; bài P5 luôn dẫn thẳng tới đăng nhập Google.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+</main>
+</div>
+
+<footer>
+  MIRA — Content Brief 2026 · "Học trọng tâm, band xứng tầm." · Tài liệu nội bộ cho đội sản xuất content.
+</footer>
+
+<script>
+(function() {
+  const input = document.getElementById('searchInput');
+  const controls = document.getElementById('searchControls');
+  const countEl = document.getElementById('searchCount');
+  const btnNext = document.getElementById('searchNext');
+  const btnPrev = document.getElementById('searchPrev');
+  const btnClose = document.getElementById('searchClose');
+  const main = document.querySelector('main');
+  let hits = [], activeIdx = -1, debounceTimer = null;
+
+  function clearHighlights() {
+    main.querySelectorAll('mark.search-hit').forEach(m => {
+      const t = document.createTextNode(m.textContent);
+      m.parentNode.replaceChild(t, m);
+    });
+    main.normalize();
+    hits = []; activeIdx = -1; countEl.textContent = '0 / 0';
+  }
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function highlight(term) {
+    clearHighlights();
+    if (!term || term.length < 2) { controls.classList.remove('show'); return; }
+    const re = new RegExp(escapeRegex(term), 'gi');
+    const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const p = node.parentElement;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        if (p.tagName === 'SCRIPT' || p.tagName === 'STYLE') return NodeFilter.FILTER_REJECT;
+        if (p.closest('mark.search-hit')) return NodeFilter.FILTER_REJECT;
+        return re.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    const nodes = []; let n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(node => {
+      const text = node.nodeValue;
+      const frag = document.createDocumentFragment();
+      let last = 0;
+      text.replace(re, (m, offset) => {
+        if (offset > last) frag.appendChild(document.createTextNode(text.slice(last, offset)));
+        const mark = document.createElement('mark');
+        mark.className = 'search-hit'; mark.textContent = m;
+        frag.appendChild(mark);
+        last = offset + m.length;
+      });
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+    hits = Array.from(main.querySelectorAll('mark.search-hit'));
+    if (hits.length) { activeIdx = 0; setActive(); controls.classList.add('show'); }
+    else { countEl.textContent = '0 / 0'; controls.classList.add('show'); }
+  }
+  function setActive() {
+    hits.forEach(h => h.classList.remove('active'));
+    if (activeIdx >= 0 && hits[activeIdx]) {
+      hits[activeIdx].classList.add('active');
+      hits[activeIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    countEl.textContent = (hits.length ? activeIdx + 1 : 0) + ' / ' + hits.length;
+  }
+  function next(){ if(!hits.length) return; activeIdx=(activeIdx+1)%hits.length; setActive(); }
+  function prev(){ if(!hits.length) return; activeIdx=(activeIdx-1+hits.length)%hits.length; setActive(); }
+
+  input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => highlight(input.value.trim()), 180);
+  });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); e.shiftKey ? prev() : next(); }
+    if (e.key === 'Escape') { input.value=''; clearHighlights(); controls.classList.remove('show'); input.blur(); }
+  });
+  btnNext.addEventListener('click', next);
+  btnPrev.addEventListener('click', prev);
+  btnClose.addEventListener('click', () => { input.value=''; clearHighlights(); controls.classList.remove('show'); });
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement !== input) { e.preventDefault(); input.focus(); }
+  });
+})();
+</script>
+</body>
+</html>
