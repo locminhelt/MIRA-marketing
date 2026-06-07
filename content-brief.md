@@ -45,7 +45,7 @@ Quy trình từ ý tưởng đến bài đăng. Mỗi content luôn gắn với 
 - `PA4` Học phí đắt
 
 **USP code**
-- `U1` Gloss theo ngữ cảnh
+- `U1` Chú thích từ vựng theo ngữ cảnh
 - `U2` Study ↔ Test liền mạch
 - `U3` CBT đúng giao diện thật
 - `U4` Phân tích lỗi theo dạng câu
@@ -60,7 +60,7 @@ MIRA khác gì so với app học online khác? Gói gọn trong **just in flow*
 
 **Một câu cho team content:** Các app khác cho bạn nội dung. MIRA gỡ bỏ những đoạn tốn công nhất giữa bạn và band điểm. (Tra cứu · làm quen phòng thi · tự mò chỗ yếu — đó là 3 đoạn tốn công MIRA xử lý.)
 
-- **U1 — Chú thích từ vựng theo đúng ngữ cảnh:** Nghĩa, IPA, bản dịch hiện ngay trên từ — và là nghĩa **đúng ngữ cảnh của bài**, không phải nghĩa từ điển chung chung. App khác bắt chuyển tab tra từ rồi tự đoán nghĩa nào hợp; kể cả nhờ AI dịch vẫn chậm hơn vì phải rời bài. Đây là "signature", dễ nhận diện & dễ demo nhất.
+- **U1 — Chú thích từ vựng theo đúng ngữ cảnh:** Nghĩa theo ngữ cảnh và bản dịch tiếng Việt hiện ngay trên từ — là nghĩa **đúng ngữ cảnh của bài**, không phải nghĩa từ điển chung chung. App khác bắt chuyển tab tra từ rồi tự đoán nghĩa nào hợp; kể cả nhờ AI dịch vẫn chậm hơn vì phải rời bài. Đây là "signature", dễ nhận diện & dễ demo nhất.
 - **U2 — Study ↔ Test liền mạch:** Không có điểm bắt đầu cố định. Vào Study hay Test đều được, hệ thống tự nối Review → Progress rồi quay vòng. Người học không phải tự quyết "giờ làm gì tiếp".
 - **U3 — Thi thử CBT đúng giao diện thật:** Không phải quiz cho có — mô phỏng đúng giao diện thi trên máy, đúng áp lực thời gian. Rất ít app Việt làm nghiêm túc.
 - **U4 — Phân tích lỗi theo dạng câu hỏi:** Sai vì từ vựng, vì dạng bài, hay vì đọc lướt — kèm gợi ý bài nên luyện tiếp. App khác chỉ trả điểm số; MIRA trả *hướng đi*.
@@ -79,10 +79,10 @@ MIRA khác gì so với app học online khác? Gói gọn trong **just in flow*
 
 | Code | Pain (Problem) | Khuấy động (Agitate) | Lối thoát MIRA (Solution) | CTA mẫu |
 |------|----------------|----------------------|----------------------------|---------|
-| **PA1** | Tra cứu làm đứt mạch đọc | Đọc được 3 câu phải dừng tra từ — quay lại đã quên đoạn đầu. Tệ hơn: tra xong còn phải tự chọn nghĩa nào hợp ngữ cảnh; kể cả nhờ AI dịch vẫn chậm vì phải rời bài. | Gloss theo ngữ cảnh (U1): nghĩa đúng ngữ cảnh + IPA hiện ngay trên từ, không chuyển tab, không phải tự đoán nghĩa. | "Đọc thử 1 bài Cambridge không khựng → 3 bài miễn phí." |
+| **PA1** | Tra cứu làm đứt mạch đọc | Đọc được 3 câu phải dừng tra từ — quay lại đã quên đoạn đầu. Tệ hơn: tra xong còn phải tự chọn nghĩa nào hợp ngữ cảnh; kể cả nhờ AI dịch vẫn chậm vì phải rời bài. | Chú thích từ vựng theo ngữ cảnh (U1): nghĩa đúng ngữ cảnh và bản dịch tiếng Việt hiện ngay trên từ, không chuyển tab, không phải tự đoán nghĩa. | "Đọc thử 1 bài Cambridge không khựng → 3 bài miễn phí." |
 | **PA2** | Lạ phòng thi máy (CBT) | Luyện trên giấy rất ổn, đến hôm thi máy thì bỡ ngỡ giao diện, luống cuống đồng hồ → điểm thật thấp hơn năng lực. | Thi thử CBT đúng giao diện, đúng áp lực thời gian (U3). | "Làm 1 đề thi thử trên máy ngay hôm nay." |
 | **PA3** | Học lan man, không biết yếu chỗ nào | Làm 20 đề mà band vẫn đứng yên. Tự tổng hợp lỗi rất mệt, luyện mãi không lên. | Phân tích lỗi theo dạng câu hỏi + gợi ý bài luyện tiếp (U4). | "Xem bài làm gần nhất được mổ xẻ thế nào (Pro)." |
-| **PA4** | Học phí trung tâm đắt | Vẫn cần hỗ trợ tiếng Việt & lộ trình, nhưng chưa sẵn sàng đóng vài triệu — đứng giữa "tự bơi với sách" và "đóng tiền trung tâm". | ~1/50 học phí trung tâm, vẫn có gloss + lộ trình cá nhân hoá. | "So sánh chi phí → bắt đầu miễn phí." |
+| **PA4** | Học phí trung tâm đắt | Vẫn cần hỗ trợ tiếng Việt & lộ trình, nhưng chưa sẵn sàng đóng vài triệu — đứng giữa "tự bơi với sách" và "đóng tiền trung tâm". | ~1/50 học phí trung tâm, vẫn có chú thích từ vựng theo ngữ cảnh + lộ trình cá nhân hoá. | "So sánh chi phí → bắt đầu miễn phí." |
 
 ---
 
@@ -93,15 +93,15 @@ Hệ thống 5 trụ nội dung. Mỗi pillar có vai trò riêng trong phễu (
 ### Pillar 1 — Hết loay hoay · **tỷ trọng 25%**
 *Friction-killer · pillar nhận diện thương hiệu*
 
-- **Mục tiêu & vai trò:** Đánh trúng nỗi đau lớn nhất (PA1): dừng đọc để tra từ, mất mạch hiểu, lại còn phải tự chọn nghĩa hợp ngữ cảnh. Gắn trực tiếp với gloss theo ngữ cảnh (U1) — đây là pillar khắc dấu thương hiệu.
+- **Mục tiêu & vai trò:** Đánh trúng nỗi đau lớn nhất (PA1): dừng đọc để tra từ, mất mạch hiểu, lại còn phải tự chọn nghĩa hợp ngữ cảnh. Gắn trực tiếp với chú thích từ vựng theo ngữ cảnh (U1) — đây là pillar khắc dấu thương hiệu.
 - **Chủ đề gợi ý:**
   - Mẹo đọc Cambridge không khựng
   - Vì sao chuyển tab giết tốc độ đọc
   - "Nghĩa từ điển" vs "nghĩa trong ngữ cảnh" khác nhau thế nào
-  - Demo gloss: trước/sau khi có chú thích tại chỗ
+  - Demo chú thích từ vựng: trước/sau khi có chú thích theo ngữ cảnh tại chỗ
   - Nghe lại đề Listening qua video phụ đề song ngữ, tra từ ngay trên phụ đề
-- **Format ưu tiên:** Carousel & short-form: mẹo nhanh, ảnh demo gloss, screen-record rê chuột hiện nghĩa; clip ngắn demo phụ đề video.
-- **USP & Pain gắn kèm:** U1 Gloss ngữ cảnh · U5 Video Listening · PA1
+- **Format ưu tiên:** Carousel & short-form: mẹo nhanh, ảnh demo chú thích theo ngữ cảnh, screen-record rê chuột hiện nghĩa; clip ngắn demo phụ đề video.
+- **USP & Pain gắn kèm:** U1 Chú thích theo ngữ cảnh · U5 Video Listening · PA1
 - **CTA chuẩn:** "Đọc thử 1 bài không khựng → 3 bài miễn phí, không cần thẻ."
 - **Nên:** Cho thấy trải nghiệm đọc mượt, cụ thể · Dùng ví dụ từ vựng học thuật thật · Quay màn hình demo tính năng.
 - **Tránh:** Ưu tiên kể trải nghiệm hơn liệt kê tính năng · Đặt mục tiêu học từ vựng thực tế, vừa sức · Kèm demo cụ thể khi nói về tính năng.
@@ -172,10 +172,10 @@ Hệ thống 5 trụ nội dung. Mỗi pillar có vai trò riêng trong phễu (
 
 Tiếng Việt đời thường, không "đao to búa lớn". Tập trung vào trải nghiệm học chứ không phô trương tính năng. Tone đổi nhẹ theo 2 chân dung khách hàng.
 
-### Với "Minh" — người tự luyện (primary, ~80%)
+### Với "Linh" — người tự luyện (primary, ~80%)
 *19–26 tuổi · tự học · nhạy cảm giá · band 5.0–6.5*
 
-Nói chuyện ngang hàng, cụ thể, tránh sáo rỗng. Hiểu rằng Minh không lười — chỉ không biết nên luyện gì tiếp. Luôn cho một bước nhỏ khả thi.
+Nói chuyện ngang hàng, cụ thể, tránh sáo rỗng. Hiểu rằng Linh không lười — chỉ không biết nên luyện gì tiếp. Luôn cho một bước nhỏ khả thi.
 
 > "Mình không lười — mình chỉ không biết nên luyện cái gì tiếp theo."
 
@@ -287,7 +287,7 @@ Kho câu kêu gọi hành động dùng chung. Chọn CTA theo "nhiệt độ" n
 | Giai đoạn phễu | CTA mẫu (chọn 1) | Dùng cho pillar |
 |----------------|-------------------|-----------------|
 | Top-funnel · người mới biết MIRA | "Đọc thử 1 bài Cambridge không khựng" · "Nghe lại 1 đề Listening có phụ đề song ngữ" · "Luyện đúng dạng câu này ngay trên MIRA" | P1 · P4 |
-| Cân nhắc · đang so sánh | "Làm 1 đề thi thử trên máy hôm nay" · "Tự thử gloss trên 1 bài đọc" · "Mở 3 bài preview của tháng" | P2 · P1 |
+| Cân nhắc · đang so sánh | "Làm 1 đề thi thử trên máy hôm nay" · "Tự thử chú thích theo ngữ cảnh trên 1 bài đọc" · "Mở 3 bài preview của tháng" | P2 · P1 |
 | Gần chuyển đổi · thấy giá trị Pro | "Xem bài làm gần nhất được mổ xẻ thế nào" · "Làm 1 bài, xem dẫn chứng đáp án từng câu" | P3 |
 | Chuyển đổi · gỡ rào cản cuối | "Vào thư viện miễn phí — không cần thẻ" · "So sánh chi phí rồi quyết" · "Bắt đầu 0đ, nâng cấp khi sẵn sàng" | P5 |
 
@@ -322,7 +322,7 @@ Mỗi pillar hợp với định dạng & kênh khác nhau. Bảng này quyết 
 
 | Pillar | Định dạng chính | Kênh ưu tiên | Mục tiêu phễu |
 |--------|-----------------|--------------|---------------|
-| P1 · Hết loay hoay | Carousel, short video demo gloss | Instagram, TikTok | Nhận diện |
+| P1 · Hết loay hoay | Carousel, short video demo chú thích theo ngữ cảnh | Instagram, TikTok | Nhận diện |
 | P2 · Phòng thi CBT | Reel demo giao diện, carousel chiến thuật | TikTok, Instagram | Cân nhắc |
 | P3 · Học đúng chỗ yếu | Carousel "đọc vị lỗi", ảnh dashboard | Instagram, Facebook | Cân nhắc → Pro |
 | P4 · Band breakdown | Blog dài SEO, pillar page + cluster | Website/Blog, YouTube | Top-of-funnel |
@@ -330,13 +330,13 @@ Mỗi pillar hợp với định dạng & kênh khác nhau. Bảng này quyết 
 
 ---
 
-## 09 · 14 Idea Mẫu để team sản xuất ngay
+## 09 · 19 Idea Mẫu để team sản xuất ngay
 
-Ý tưởng đã gắn sẵn pillar, pain, USP, format & CTA. Lấy về làm là viết được.
+Ý tưởng đã gắn sẵn pillar, pain, USP, format & CTA. Lấy về làm là viết được. **Nguyên tắc viết:** mở bằng nỗi đau/kết quả người học cảm nhận được, tính năng xuất hiện *sau* như "cách bọn mình thử". Dùng lời người học, thuật ngữ IELTS chỉ giữ trong tiêu đề bài blog SEO (để bắt tìm kiếm Google) — caption social viết lời thường.
 
 ### P1 · Hết loay hoay
 1. **"5 lần chuyển tab tra từ = mất 5 lần mạch đọc"** — `P1` `PA1` `U1` · Format: Carousel 6 slide · CTA: Đọc thử 1 bài không khựng → 3 bài miễn phí
-2. **Screen-record: rê chuột là hiện nghĩa + IPA ngay trên từ** — `P1` `U1` · Format: Short video 15–20s · CTA: Tự thử trên 1 bài Cambridge
+2. **"Đọc Cambridge 10 phút, hết 6 phút chỉ để tra từ"** — `P1` `PA1` `U1` · Format: Short video 15–20s · Mở bằng nỗi đau đọc-đứt-quãng, *rồi mới* cho thấy "chạm vào từ là thấy nghĩa ngay trong bài" · CTA: Tự thử trên 1 bài Cambridge
 3. **"Nghe đề Listening 1 lần trôi hết? Nghe lại có phụ đề, tra từ ngay tại chỗ"** — `P1` `U5` · Format: Reel demo 20–30s · CTA: Nghe lại 1 đề Listening có phụ đề song ngữ
 
 ### P2 · Phòng thi CBT
@@ -346,10 +346,10 @@ Mỗi pillar hợp với định dạng & kênh khác nhau. Bảng này quyết 
 ### P3 · Học đúng chỗ yếu
 6. **"Làm 20 đề band vẫn đứng yên? Đây là lý do thật"** — `P3` `PA3` `U4` · Format: Carousel "đọc vị lỗi" · CTA: Xem bài làm gần nhất được mổ xẻ (Pro)
 7. **Ảnh dashboard: sai vì từ vựng / dạng bài / đọc lướt?** — `P3` `U4` · Format: Single image + caption · CTA: Khám phá phân tích lỗi của bạn
-8. **"Đáp án câu này nằm ở dòng nào?" — MIRA chỉ thẳng vào bài** — `P3` `U6` · Format: Clip / carousel demo · CTA: Làm thử 1 bài, xem dẫn chứng từng câu
+8. **"Làm xong biết đúng/sai — nhưng vì sao sai thì chịu"** — `P3` `U6` · Format: Clip / carousel demo · Outcome trước: hết cảnh mò mẫm "sao mình sai" → MIRA chỉ thẳng vào dòng chứa đáp án trong bài · CTA: Làm thử 1 bài, xem dẫn chứng từng câu
 
 ### P4 · Band breakdown
-9. **"Cách làm dạng Matching Headings không bị lừa"** — `P4` `SEO` · Format: Blog dài + carousel tóm tắt · CTA: Luyện đúng dạng này trên MIRA → miễn phí
+9. **"Cách làm dạng Matching Headings không bị lừa"** — `P4` `SEO` · Format: Blog dài + carousel tóm tắt · Tiêu đề blog giữ "Matching Headings" để bắt tìm kiếm Google; *caption social* viết lời thường: "Cái dạng chọn tiêu đề cho từng đoạn — vì sao hay bị lừa?" · CTA: Luyện đúng dạng này trên MIRA → miễn phí
 10. **Band score Listening: 30/40 là band mấy? (bảng quy đổi)** — `P4` `SEO` · Format: Blog SEO + infographic · CTA: Thi thử để biết band ước lượng của bạn
 11. **20 từ học thuật chủ đề Môi trường (hay gặp trong Cambridge)** — `P4` `U1` · Format: Carousel + blog cluster · CTA: Gặp lại 20 từ này ngay trong bài đọc MIRA
 
@@ -357,6 +357,15 @@ Mỗi pillar hợp với định dạng & kênh khác nhau. Bảng này quyết 
 12. **"Một khoá trung tâm vs 1 năm MIRA: làm phép tính"** — `P5` `PA4` · Format: Carousel so sánh giá · CTA: So sánh chi phí → vào thư viện miễn phí
 13. **"Mình thử 0đ 1 tháng rồi mới nâng cấp" — câu chuyện thật** — `P5` `Value` · Format: Case study / testimonial · CTA: Bắt đầu miễn phí, không cần thẻ
 14. **"Vì sao MIRA cho 3 bài miễn phí mỗi tháng?" (minh bạch)** — `P5` `Value` · Format: Bài Facebook dài · CTA: Mở 3 bài preview tháng này
+18. **"Một khoá trung tâm = trọn một mùa luyện thi trên MIRA"** — `P5` `PA4` `Value` · Format: Carousel so sánh giá / Landing · **CTA chốt sales:** "Chọn gói 6 tháng, tiết kiệm 48% so với trả từng tháng." (nhắc 2 tháng −31% / 6 tháng −48%, kèm chữ "khoảng", không hối thúc)
+19. **"Học đúng chỗ yếu — nâng Pro để biết chính xác nên luyện gì"** — `P5` `U4` `Value` · Format: Carousel / Landing · **CTA chốt sales:** "Nâng lên Pro để biết chính xác nên luyện gì tiếp — chọn gói dài, tiết kiệm tới 48%."
+
+### P3 · Mất động lực — "học mãi không thấy khá hơn"
+*Pain cảm xúc giữ chân người học (retention). Mở bằng cảm giác bế tắc, MIRA xuất hiện như "luôn biết bước tiếp theo".*
+
+15. **"Mở Cambridge ra rồi… đóng lại"** — `P3` `PA3` `U2` · Format: Reel 20–30s · Mở bằng cảm giác bế tắc không biết bắt đầu từ đâu → MIRA tự nối Review → Progress → bài tiếp, mở app là biết ngay việc cần làm · CTA: Mở app, để nó chỉ bạn việc đầu tiên — miễn phí
+16. **"Làm test mà điểm cứ tụt — có phải mình đang kém đi?"** — `P3` `PA3` `U4` · Format: Carousel · Điểm tổng lên xuống là bình thường; MIRA tách lỗi theo nhóm để thấy tiến bộ thật ("dạng này tháng trước sai 60%, giờ 30%") · CTA: Xem mình thật sự khá lên ở đâu (Pro)
+17. **"Bỏ một tuần không học, quay lại thấy mất gốc"** — `P3` `PA3` `U2` · Format: Reel / carousel · Nghỉ là chuyện thường; MIRA nhớ chỗ bạn dừng, gợi ý bài nhẹ để vào lại guồng — không phải bắt đầu lại từ số 0 · CTA: Quay lại đúng chỗ bạn dừng — miễn phí
 
 ---
 
@@ -377,11 +386,11 @@ Bảng màu & nguyên tắc hình ảnh lấy thẳng từ design system MIRA. G
 
 ### Typography
 - **Be Vietnam Pro** — toàn bộ chữ (heading 700/800, body 400)
-- **JetBrains Mono** — IPA, code, số liệu
+- **JetBrains Mono** — code, số liệu
 - Tagline "just in flow": luôn lowercase, in nghiêng, màu blue
 
 ### Nguyên tắc ảnh
-- Ưu tiên ảnh demo sản phẩm thật (gloss, giao diện thi)
+- Ưu tiên ảnh demo sản phẩm thật (chú thích theo ngữ cảnh, giao diện thi)
 - Bo góc mềm (radius lớn), bóng xanh nhạt — không bóng đen gắt
 - Nhiều khoảng trắng, nhịp đọc thoáng
 
@@ -434,7 +443,7 @@ Tỷ trọng đề xuất giữa 5 pillar và một tuần mẫu để team áp 
 | T7 | P1 Short video |
 | CN | P5 Case study |
 
-> Phân bổ kênh: P4 nuôi SEO/blog & reach; P1 nhận diện trên IG/TikTok; P2–P3 chiều sâu sản phẩm; P5 chốt đơn ở Facebook/Landing. Dồn ~80% nội dung cho persona "Minh", ~20% cho "Cô Hà" (gói Business).
+> Phân bổ kênh: P4 nuôi SEO/blog & reach; P1 nhận diện trên IG/TikTok; P2–P3 chiều sâu sản phẩm; P5 chốt đơn ở Facebook/Landing. Dồn ~80% nội dung cho persona "Linh", ~20% cho "Cô Hà" (gói Business).
 
 ---
 
